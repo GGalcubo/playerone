@@ -1,0 +1,139 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>| PlayerOne</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href='{% static "css/bootstrap.min.css" %}' rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href='{% static "css/one-page-wonder.css" %}' rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+    <body>
+        {% include "menu.html" %}
+        
+        <!-- Full Width Image Header -->
+        <header class="header-image">
+            <div class="headline">
+                <div class="container">
+                    <!-- h1>PlayerOne</h1 width="804" height="236" -->
+                    <img  src="{% static 'img/logo.png' %}">
+                    <h2>Sistema de gestión de canchas</h2>
+                    <a href="/ingresar/" class="btn btn-success"  type="button">Ingresar </a>
+                    <a href="/registrarse/" class="btn btn-primary" type="button">Registrate Ya</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        
+        <div class="container">
+
+            <hr class="featurette-divider">
+
+            <!-- First Featurette -->
+            <div class="featurette" id="about">
+                <img class="featurette-image mg-rounded img-responsive pull-right" width="304" height="236" src="{% static 'img/img1.jpg' %}">
+                <h1 class="featurette-heading">Simple, rápido y fácil de usar
+                <span class="text-muted"><p>Digitaliza el manejo de reservas.</p></span>
+                </h1>
+                <p class="lead">Gestiona tu disponibilidad de forma eficiente. Olvidate de los papeles o el excel, gestióna tus canchas online y accede desde cualquier lugar y cualquier dispositivo.</p>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <!-- Second Featurette -->
+            <div class="featurette" id="services">
+                <img class="featurette-image mg-rounded img-responsive pull-left" width="304" height="236" src="{% static 'img/img2.jpg' %}">
+                <h2 class="featurette-heading">Movil.
+                    <span class="text-muted"><p>Controla tu disponibilidad las 24hs.</p>
+                </h2>
+                <p class="lead"> Accede en cualquier momento a las reservas desde cualquier dispositivo sin necesidad de estar en el establecimiento.Lleva seguimiento de tus reservas, dándole un usuario y contraseña a cada uno de tus empleados, así sabrás quien creo una reserva, quien la cancelo y quien la marco como asistida o incumplida.</p>
+                
+            </span>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <!-- Third Featurette -->
+            <div class="featurette" id="contact">
+                <img class="featurette-image img-rounded img-responsive pull-right"  width="304" height="236" src="{% static 'img/img3.jpg' %}">
+                <h2 class="featurette-heading">Probalo 30 días gratis 
+                    <span class="text-muted"><p>Sin tarjeta, ni gastos ocultos.</p></span> 
+                </h2>
+                <p class="lead">Obtene reportes de ganancias, uso de las canchas. Necesitas una funcionalidad especial? Contactanos, PlayerOne es configurable, pedinos tu funcionalidad y la desarrollamos para vos.</p>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <section class="contact" id="contact">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="section-title st-center">
+                                <h2>Contactanos</h2>
+                                <h4>Tenes dudas sobre como obtener la aplicacion? dejanos un mensaje.</h4>
+                                <img style="margin-left: 27%;" class="featurette-image mg-rounded img-responsive pull-left" width="250" height="250" src="{% static 'img/img4.jpg' %}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <form class="contact-form" role="form">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="fname" name="fname" placeholder="Nombre">
+                                </div>            
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="subj" name="subj" placeholder="Asunto">
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="mssg" name="mssg" placeholder="Descripci&oacute;n" class="form-control" rows="10"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-main btn-lg" type="submit" id="send" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending..."><i class="fa fa-paper-plane "></i> Enviar</button>
+                                </div>
+                            </form>
+                            <div id="result-message" role="alert"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+                    <!-- Footer -->
+            <hr class="featurette-divider">
+
+            {% include "footer.html" %}
+            
+        </div> 
+        
+        <!-- /.container -->
+
+        <!-- jQuery -->
+        <script src='{% static "js/jquery.js" %}'></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src='{% static "js/bootstrap.min.js" %}'></script>
+
+    </body>
+
+</html>

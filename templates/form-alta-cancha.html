@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+{% include "cabecera.html" %}
+<body>
+    <div id="wrapper">
+      <!-- Navigation -->
+      <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+          <!-- /.navbar-top-links -->
+          {% include "barra_top.html" %}
+          <!-- /.navbar-static-side -->
+          {% include "barra_lat.html" %}
+      </nav>
+      <div id="page-wrapper">
+        <div id="panel_principal" class="panel panel-default">
+          <div class="panel-heading">
+            <h4>Agregar Cancha</h4>
+          </div>
+          <!-- /.panel-heading -->
+          <div class="panel-body">
+            <form class="form-horizontal">
+              <fieldset>
+                <div class="row">
+                  <div class="col-md-12">
+                    <h3 class="formulario">Datos Obligatorios</h3>
+                    <br>
+                    <div class="obligatorio">
+                      
+                      <div class="form-group">
+                        <div class="col-md-4">
+                          <h5><b>Nombre</b></h5>
+                          <input id="nombre_cancha" name="nombre_cancha" type="text" placeholder="Nombre de la Cancha" class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                          <h5><b>Superficie</b><h5>
+                          <select id="superficie_cancha" name="superficie_cancha" class="form-control">
+                            <option value="1">Pasto sintético</option>
+                            <option value="2">Baldosa</option>
+                            <option value="3">Flotante</option>
+                            <option value="4">Carpeta</option>
+                            <option value="5">Polvo de ladrillo</option>
+                          </select>
+                        </div>
+                        <div class="col-md-4">
+                          <h5><b>Precio</b></h5>
+                          <input id="precio_cancha" name="precio_cancha" type="text" placeholder="Ej: 800" class="form-control" required>
+                        </div>
+                      </div>
+                      
+                      
+                      
+                          <div class="form-group">
+                            <label class="col-md-3 control-label centrado" for="">Deporte</label>
+                            <div class="col-md-9">
+                              <label class="checkbox-inline" for="-0">
+                                <input type="checkbox" name="" id="-0" value="1">
+                                Futbol
+                              </label>
+                              <label class="checkbox-inline" for="-1">
+                                <input type="checkbox" name="" id="-1" value="2">
+                                Hockey
+                              </label>
+                              <label class="checkbox-inline" for="-2">
+                                <input type="checkbox" name="" id="-2" value="3">
+                                Basket
+                              </label>
+                              <label class="checkbox-inline" for="-3">
+                                <input type="checkbox" name="" id="-3" value="4">
+                                Tenis
+                              </label>
+                              <label class="checkbox-inline" for="-4">
+                                <input type="checkbox" name="" id="-4" value="5">
+                                Handball
+                              </label>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label centrado" for="">Cantidad Jugadores</label>
+                            <div class="col-md-9">
+                              <label class="checkbox-inline" for="-5">
+                                <input type="checkbox" name="" id="-5" value="1">
+                                2
+                              </label>
+                              <label class="checkbox-inline" for="-6">
+                                <input type="checkbox" name="" id="-6" value="2">
+                                4
+                              </label>
+                              <label class="checkbox-inline" for="-7">
+                                <input type="checkbox" name="" id="-7" value="3">
+                                5
+                              </label>
+                              <label class="checkbox-inline" for="-8">
+                                <input type="checkbox" name="" id="-8" value="4">
+                                6
+                              </label>
+                              <label class="checkbox-inline" for="-9">
+                                <input type="checkbox" name="" id="-9" value="5">
+                                7
+                              </label>
+                              <label class="checkbox-inline" for="-10">
+                                <input type="checkbox" name="" id="-10" value="6">
+                                8
+                              </label>
+                              <label class="checkbox-inline" for="-11">
+                                <input type="checkbox" name="" id="-11" value="7">
+                                9
+                              </label>
+                              <label class="checkbox-inline" for="-12">
+                                <input type="checkbox" name="" id="-12" value="8">
+                                11
+                              </label>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label centrado" for="">Características</label>
+                            <div class="col-md-9">
+                              <label class="checkbox-inline" for="-13">
+                                <input type="checkbox" name="" id="-13" value="1">
+                                Techada
+                              </label>
+                              <label class="checkbox-inline" for="-14">
+                                <input type="checkbox" name="" id="-14" value="2">
+                                Luz
+                              </label>
+                            </div>
+                          </div>
+                      
+                    </div>  
+                  </div>
+                  <!-- BOTONES -->
+                  <div class="form-group padre">
+                    <label class="col-md-4 control-label" for=""></label>
+                    <div class="col-md-12 hijo">
+                      <button id="" name="" class="btn btn-success">Agregar</button>
+                      <button id="" name="" class="btn btn-danger">Cancelar</button>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <!-- /.panel-body -->
+        </div>
+        <!-- /#panel_principal -->
+      </div>
+      <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    {% include "pie.html" %}
+
+</body>
+</html>

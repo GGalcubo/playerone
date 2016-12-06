@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>playerone - Sistema de Gestión de Canchas</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+
+		<link rel="shortcut icon" href='{% static "landing/football.ico" %}'>
+		<!-- animate css -->
+		<link rel="stylesheet" href='{% static "landing/css/animate.min.css" %}'>
+		<!-- bootstrap css -->
+		<link rel="stylesheet" href='{% static "landing/css/bootstrap.min.css" %}'>
+		<!-- font-awesome -->
+		<link rel="stylesheet" href='{% static "landing/css/font-awesome.min.css" %}'>
+		<!-- google font -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,800' rel='stylesheet' type='text/css'>
+
+		<!-- custom css -->
+		<link rel="stylesheet" href='{% static "landing/css/templatemo-style.css" %}'>
+
+	</head>
+	<body>
+		<!-- start preloader -->
+		<div class="preloader">
+			<div class="sk-spinner sk-spinner-rotating-plane"></div>
+    	 </div>
+		<!-- end preloader -->
+		<!-- start navigation -->
+		<nav class="navbar navbar-default navbar-fixed-top templatemo-nav" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+					</button>
+					<a href="#" class="navbar-brand"><img src='{% static "landing/images/football.png" %}' style="max-width: 40px;float: left;margin-right: 10px" class="img-responsive" alt="feature img">playerone</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right text-uppercase">
+						<li><a href="#home">Inicio</a></li>
+						<li><a href="#feature">¿Que es?</a></li>
+						<li><a href="#download">Registrate</a></li>
+						<li><a href="#contact">Contacto</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- end navigation -->
+		<!-- start home -->
+		<section id="home">
+			<div class="overlay">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10 wow fadeIn" data-wow-delay="0.3s">
+							<h1 class="text-upper">Sistema de Gestión de Canchas</h1>
+							<p class="tm-white">¿Sos un club y necesitas manejar tus instalaciones? playerone se puede adaptar a tus necesidades.</p>
+							<img src='{% static "landing/images/software-img.png" %}' class="img-responsive" alt="home img">
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end home -->
+		<!-- start divider -->
+		<!-- <section id="divider">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
+						<i class="fa fa-laptop"></i>
+						<h3 class="text-uppercase">RESPONSIVE LAYOUT</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. </p>
+					</div>
+					<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
+						<i class="fa fa-twitter"></i>
+						<h3 class="text-uppercase">BOOTSTRAP 3.3.4</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. </p>
+					</div>
+					<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
+						<i class="fa fa-font"></i>
+						<h3 class="text-uppercase">GOOGLE FONT</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. </p>
+					</div>
+				</div>
+			</div>
+		</section> -->
+		<!-- end divider -->
+
+		<!-- start feature -->
+		<section id="feature">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
+						<h2 class="text-uppercase">Simple, rápido y fácil de usar</h2>
+						
+						<p><span><i class="fa fa-mobile"></i></span>Digitaliza el manejo de reservas, gestiona tu disponibilidad de forma eficiente.</p>
+						<p><span><i class="fa fa-code"></i></span>Olvídate de los papeles o el Excel, gestiona tus canchas online y accede desde cualquier lugar y cualquier dispositivo.</p>
+					</div>
+					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+						<img src='{% static "landing/images/software-img.png" %}' class="img-responsive" alt="feature img">
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end feature -->
+
+		<!-- start feature1 -->
+		<section id="feature1">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+						<img src='{% static "landing/images/keyboard-football.png" %}' class="img-responsive" alt="feature img">
+					</div>
+					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+						<h2 class="text-uppercase">Solución Móvil</h2>
+						<p>Controla tu disponibilidad las 24hs.</p>
+						<p><span><i class="fa fa-mobile"></i></span>Accede en cualquier momento a las reservas desde cualquier dispositivo sin necesidad de estar en el establecimiento.</p>
+						<p><span><i class="fa fa-code"></i></span>Lleva seguimiento de tus reservas, dándole un usuario y contraseña a cada uno de tus empleados, así sabrás quien creo una reserva, quien la cancelo y quien la marco como asistida o incumplida.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end feature1 -->
+
+		<!-- start registrate -->
+		<section id="download">
+			<div class="container">
+				<div class="row">					
+					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+						<h2 class="text-uppercase">Registrate</h2>
+						<p>Próbalo 30 días gratis. </p>
+						<p>Sin tarjeta, ni gastos ocultos. Solo ingresas tu email. </p>
+						<button class="btn btn-primary text-uppercase">registrate</button>
+					</div>
+					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+						<img src='{% static "landing/images/header_v1.png" %}' class="img-responsive" alt="feature img">
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end registrate -->
+
+		<!-- start contact -->
+		<section id="contact">
+			<div class="overlay">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+							<h2 class="text-uppercase">Contactanos</h2>
+							<p>Tenes dudas sobre como obtener la aplicación? Dejanos un mensaje.</p>
+							<address>
+								<p><i class="fa fa-map-marker"></i>Capital Federal, Buenos Aires, Argentina</p>
+								<p><i class="fa fa-phone"></i> 11167937000</p>
+								<p><i class="fa fa-envelope-o"></i> info@galcubo.com</p>
+							</address>
+						</div>
+						<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+							<div class="contact-form">
+								<form action="#" method="post">
+									<div class="col-md-6">
+										<input type="text" class="form-control" placeholder="Nombre">
+									</div>
+									<div class="col-md-6">
+										<input type="email" class="form-control" placeholder="Email">
+									</div>
+									<div class="col-md-12">
+										<input type="text" class="form-control" placeholder="Asunto">
+									</div>
+									<div class="col-md-12">
+										<textarea class="form-control" placeholder="Comentario" rows="4"></textarea>
+									</div>
+									<div class="col-md-8">
+										<input type="submit" class="form-control text-uppercase" value="Enviar">
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end contact -->
+
+		<!-- start footer -->
+		<footer>
+			<div class="container">
+				<div class="row">
+					<p>Copyright © 2016 Galcubo</p>
+				</div>
+			</div>
+		</footer>
+		<!-- end footer -->
+        
+		<script type="text/javascript" src='{% static "landing/js/jquery.js" %}'></script>
+		<script type="text/javascript" src='{% static "landing/js/bootstrap.min.js" %}'></script>
+		<script type="text/javascript" src='{% static "landing/js/wow.min.js" %}'></script>
+		<script type="text/javascript" src='{% static "landing/js/jquery.singlePageNav.min.js" %}'></script>
+		<script type="text/javascript" src='{% static "landing/js/custom.js" %}'></script>
+	</body>
+</html>

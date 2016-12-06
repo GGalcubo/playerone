@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+{% include "cabecera.html" %}
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <!-- /.navbar-top-links -->
+            {% include "barra_top.html" %}
+            <!-- /.navbar-static-side -->
+            {% include "barra_lat.html" %}
+        </nav>
+        <div id="page-wrapper">
+            <div id="panel_principal" class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Complejo: {{ complejo_sel.nombre }} - Día: HOY</h4>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+
+
+                  <div id="tabla" class="col-md-12">
+                    <div class="table-responsive">
+                      <table class="table table-inverse">
+                        <thead>
+                          <tr>
+                            <th class="angosto">Horario</th>
+                            <th>Cancha 1</th>
+                            <th>Cancha 2</th>
+                            <th>Cancha 3</th>
+                            <th>Cancha 4</th>
+                            <th>Cancha 5</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="angosto">10:00</td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">10:30</td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">11:00</td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">11:30</td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">12:00</td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">12:30</td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">13:00</td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">13:30</td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">14:00</td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">14:30</td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">15:00</td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">15:30</td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">16:00</td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">16:30</td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">17:00</td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">17:30</td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">18:00</td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">18:30</td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">19:00</td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">19:30</td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">20:00</td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">20:30</td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">21:00</td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">21:30</td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">22:00</td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">22:30</td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">23:00</td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                          <tr>
+                            <td class="angosto">23:30</td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                            <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
+                            <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                  <h4 class="modal-title" id="myModalLabel">Reserva</h4>
+                              </div>
+                              <div class="modal-body">
+                                  <form class="form-horizontal">
+                                  <fieldset>
+                                    <div class="form-group">
+                                      <label class="col-sm-2 control-label" for="">Cancha</label>  
+                                      <div class="col-sm-4">
+                                      <input id="" name="" type="text" placeholder="Cilindro Mágico" class="form-control" required="">
+                                      </div>
+                                    
+                                      <label class="col-sm-2 control-label" for="">Fecha</label>  
+                                      <div class="col-sm-4">
+                                      <input id="" name="" type="text" placeholder="Jueves 22/09" class="form-control" required="">
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-sm-2 control-label" for="">Hora</label>  
+                                      <div class="col-sm-4">
+                                      <input id="" name="" type="text" placeholder="20 hs" class="form-control" required="">
+                                      </div>
+
+                                      <label class="col-sm-2 control-label" for="">Nombre</label>  
+                                      <div class="col-sm-4">
+                                      <input id="" name="" type="text" placeholder="Jorge" class="form-control" required="">
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-sm-2 control-label" for="">Teléfono</label>
+                                      <div class="col-sm-4">
+                                        <div class="input-group">
+                                          <span class="input-group-addon">+54 9</span>
+                                          <input id="" name="" class="form-control" placeholder="1136561212" type="text" required="">
+                                        </div>
+                                      </div>
+                                      <label class="col-sm-2 control-label" for="">Seña</label>  
+                                      <div class="col-sm-4">
+                                      <input id="" name="" type="text" placeholder="$200" class="form-control" required="">
+                                      </div>
+                                    </div>
+                                  </fieldset>
+                                  </form>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-success">Reservar</button>
+                                  <button type="button" class="btn btn-danger">Eliminar Reserva</button>
+                              </div>
+                          </div>
+                          <!-- /.modal-content -->
+                      </div>
+                      <!-- /.modal-dialog -->
+                  </div>
+
+
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+    </div>
+
+    <!-- /#wrapper -->
+
+    {% include "pie.html" %}
+    
+</body>
+</html>
