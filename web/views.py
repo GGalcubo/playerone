@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
 from django.template import loader
+from django.template.defaulttags import register
 from django.http import HttpResponse
 from django.utils.translation import ugettext
 from django.views.decorators.csrf import csrf_exempt
@@ -9,9 +10,9 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from .models import Usuario, Telefono, TelefonosUsuario, TipoTelefono, TipoUsuario, Cancha, Complejo
+from .models import Usuario, Telefono, TelefonosUsuario, TipoTelefono, TipoUsuario, Cancha, Complejo, Reserva
 import json
-
+import datetime
 
 def index(request):
     mensaje = 'INDEX'
@@ -122,7 +123,28 @@ def dashboard(request):
     complejo_sel = complejos[0]
     canchas_complejo = complejo_sel.cancha_set.all()
 
-    context = {'mensaje': mensaje, 'complejos': complejos, 'canchas_complejo':canchas_complejo, 'complejo_sel':complejo_sel}
+    lista_horarios = ['1000', '1030', '1100', '1130', '1200', '1230', '1300', '1330', '1400', '1430', '1500', '1530', '1600', '1630', '1700', '1730', '1800', '1830', '1900', '1930', '2000', '2030', '2100', '2130', '2200', '2230', '2300', '2330', '0000', '0030']
+    dict_horarios = {}
+    tabla = []
+    
+    for hora in lista_horarios:
+        
+        dict_horarios = {}
+        dict_horarios['horario'] = hora[:2] + ':' + hora[2:]
+        
+        fecha_inicio = datetime.datetime.now().strftime ("%Y%m%d")
+        fecha_inicio = fecha_inicio + hora
+        
+        for cancha in canchas_complejo:
+            reservas = Reserva.objects.filter(cancha=cancha, fecha_inicio=fecha_inicio)
+            if reservas:
+                dict_horarios[cancha.nombre] = 'reservada'
+            else:
+                dict_horarios[cancha.nombre] = 'libre'
+        tabla.append(dict_horarios)
+    
+    
+    context = {'mensaje': mensaje, 'complejos': complejos, 'canchas_complejo':canchas_complejo, 'complejo_sel':complejo_sel, 'tabla':tabla}
     return render(request, 'dashboard.html', context)
     
 
@@ -139,3 +161,7 @@ def form_alta_complejo(request):
 
     context = {'mensaje': mensaje, 'complejos': complejos, }
     return render(request, 'form-alta-complejo.html', context)
+    
+@register.filter
+def get_item(dictionary, key):
+    return dictionary.get(key)
