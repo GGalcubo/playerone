@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
 from django.utils.encoding import smart_unicode
 
+
 class Deporte(models.Model):
     nombre = models.CharField('Nombre', max_length=250)
     comentario = models.TextField('Comentario', null=True, blank=True)
