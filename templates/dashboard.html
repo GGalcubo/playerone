@@ -11,10 +11,11 @@
             {% include "barra_lat.html" %}
         </nav>
         <div id="page-wrapper">
+            <input type="hidden" name="fecha" id="fecha" value="{{ fecha }}">
             <!-- guido es ju...-->
             <div id="panel_principal" class="panel panel-default">
                 <div class="panel-heading">
-                    <h4>Complejo: {{ complejo_sel.nombre }} - Día: HOY</h4>
+                    <h4>Complejo: {{ complejo_sel.nombre }} - Día: {{ fecha }}</h4>
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -36,11 +37,8 @@
                                 <tr>
                                     <td class="angosto">{{ linea|get_item:'horario' }}</td>
                                     {% for cancha in canchas_complejo %}
-                                        <td class="bg-{{ linea|get_item:cancha.nombre }}"><a data-toggle="modal" data-target="#myModal">{{ linea|get_item:cancha.nombre|title }}</a></td>
+                                        <td class="bg-{{ linea|get_item:cancha.nombre }}"><a onclick="abrirHorario('{{ linea|get_item:'horario' }}', '{{ linea|get_item:cancha.id }}', '{{ cancha.id  }}');" >{{ linea|get_item:cancha.nombre|title }}</a></td>
                                     {% endfor %}
-                                    <!-- td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
-                                    <td class="bg-libre"><a data-toggle="modal" data-target="#myModal">Libre</a></td>
-                                    <td class="bg-reservada"><a data-toggle="modal" data-target="#myModal">Reservada</a></td -->
                                 </tr>
                             {% endfor %}
                         </tbody>
@@ -49,7 +47,7 @@
                   </div>
 
                   <!-- Modal -->
-                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="modalHorario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                           <div class="modal-content">
                               <div class="modal-header">
@@ -60,40 +58,70 @@
                                   <form class="form-horizontal">
                                   <fieldset>
                                     <div class="form-group">
-                                      <label class="col-sm-2 control-label" for="">Cancha</label>  
-                                      <div class="col-sm-4">
-                                      <input id="" name="" type="text" placeholder="Cilindro Mágico" class="form-control" required="">
-                                      </div>
-                                    
-                                      <label class="col-sm-2 control-label" for="">Fecha</label>  
-                                      <div class="col-sm-4">
-                                      <input id="" name="" type="text" placeholder="Jueves 22/09" class="form-control" required="">
-                                      </div>
-                                    </div>
-                                    <div class="form-group">
-                                      <label class="col-sm-2 control-label" for="">Hora</label>  
-                                      <div class="col-sm-4">
-                                      <input id="" name="" type="text" placeholder="20 hs" class="form-control" required="">
+
+                                      <label class="col-sm-2 control-label" for="">Fecha</label> 
+                                      <div class="col-sm-3">
+                                      <input id="fecha_modal" name="fecha_modal" type="text" placeholder="Jueves 22/09" class="form-control" required="">
                                       </div>
 
-                                      <label class="col-sm-2 control-label" for="">Nombre</label>  
+
+                                      <label class="col-sm-2 control-label" for="">Cancha</label>  
                                       <div class="col-sm-4">
-                                      <input id="" name="" type="text" placeholder="Jorge" class="form-control" required="">
+                                      <select id="cancha_select" class="form-control">
+                                            {% for c in canchas_complejo %}
+                                              <option value="{{ c.id }}">{{ c.nombre }}</option>
+                                            {% endfor %}
+                                        </select>
                                       </div>
+
                                     </div>
                                     <div class="form-group">
+                                      <label class="col-sm-2 control-label" for="">Desde</label>  
+                                      <div class="col-sm-3">
+                                        <select id="horarios_select" class="form-control">
+                                            {% for i in lista_horarios_text %}
+                                              <option>{{ i }}</option>
+                                            {% endfor %}
+                                        </select>
+                                      </div>
+
+                                      <label class="col-sm-2 control-label" for="">Hasta</label>
+                                      <div class="col-sm-3">
+                                        <select id="horarios_hasta_select" class="form-control">
+                                            {% for i in lista_horarios_text %}
+                                              <option>{{ i }}</option>
+                                            {% endfor %}
+                                        </select>
+                                      </div>
+
+
+                                      
+                                    </div>
+                                    <div class="form-group">
+
+                                      <label class="col-sm-2 control-label" for="">Nombre</label>  
+                                      <div class="col-sm-3">
+                                      <input id="" name="" type="text" placeholder="Jorge" class="form-control" required="">
+                                      </div>
+
                                       <label class="col-sm-2 control-label" for="">Teléfono</label>
-                                      <div class="col-sm-4">
+                                      <div class="col-sm-3">
                                         <div class="input-group">
-                                          <span class="input-group-addon">+54 9</span>
+                                          <!-- span class="input-group-addon">+54 9</span -->
                                           <input id="" name="" class="form-control" placeholder="1136561212" type="text" required="">
                                         </div>
                                       </div>
+
+                                    </div>
+
+
+                                    <div class="form-group">
                                       <label class="col-sm-2 control-label" for="">Seña</label>  
-                                      <div class="col-sm-4">
+                                      <div class="col-sm-3">
                                       <input id="" name="" type="text" placeholder="$200" class="form-control" required="">
                                       </div>
                                     </div>
+
                                   </fieldset>
                                   </form>
                               </div>
@@ -118,6 +146,29 @@
     <!-- /#wrapper -->
 
     {% include "pie.html" %}
-    
+
+    <script>
+        $(document).ready(function() {
+
+        });
+
+        function abrirHorario(horario, id, canchaid){
+            $('#cancha_select').val(canchaid);
+            $('#cancha_select').prop('disabled',true);
+            
+            var fecha = $('#fecha').val();
+            $('#fecha_modal').val(fecha);
+            $('#fecha_modal').prop('disabled',true);
+
+            $('#horarios_select option:contains('+horario+')').prop('selected',true);
+            $('#horarios_select').prop('disabled',true);
+
+            $('#horarios_hasta_select option:contains('+horario+')').prop('selected',true);
+
+            $('#modalHorario').modal('show');
+        }
+
+    </script>
+
 </body>
 </html>

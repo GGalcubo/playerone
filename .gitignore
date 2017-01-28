@@ -42,3 +42,5 @@ Thumbs.db
 # Folder #
 *.pyc
 playerone/settings.py
+*.pyc
+playerone/settings.py
