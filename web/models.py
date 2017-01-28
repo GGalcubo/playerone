@@ -141,7 +141,7 @@ class Reserva(models.Model):
     fecha_atualizacion = models.CharField('Fecha Actualizacion', default='000000000000', max_length=12)
     
     def __str__(self):
-        return self.usuario
+        return self.nombre
 
     class Meta:
         verbose_name_plural = "Reservas"
