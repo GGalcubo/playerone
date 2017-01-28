@@ -146,9 +146,9 @@ def dashboard(request):
             else:
                 dict_horarios[cancha.nombre] = 'libre'
         tabla.append(dict_horarios)
+    ancho = 95 / len(canchas_complejo)    
     
-    
-    context = {'fecha': fecha,'mensaje': mensaje, 'complejos': complejos, 'canchas_complejo':canchas_complejo, 'complejo_sel':complejo_sel, 'tabla':tabla, 'lista_horarios_text': lista_horarios_text}
+    context = {'fecha': fecha,'mensaje': mensaje, 'complejos': complejos, 'canchas_complejo':canchas_complejo, 'complejo_sel':complejo_sel, 'tabla':tabla, 'lista_horarios_text': lista_horarios_text, 'ancho':ancho}
     return render(request, 'dashboard.html', context)
     
 
