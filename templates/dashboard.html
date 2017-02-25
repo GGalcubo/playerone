@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 {% include "cabecera.html" %}
-<body>
-    <div id="wrapper">
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
+        <!-- BEGIN HEADER -->
+        <div class="page-header navbar navbar-fixed-top">
             <!-- /.navbar-top-links -->
             {% include "barra_top.html" %}
             <!-- /.navbar-static-side -->
             {% include "barra_lat.html" %}
-        </nav>
-        <div id="page-wrapper">
+        </div>
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+    
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                <div id="page-wrapper">
             <input type="hidden" name="fecha" id="fecha" value="{{ fecha }}">
             <!-- guido es ju...-->
             <div id="panel_principal" class="panel panel-default">
@@ -140,10 +149,9 @@
                 <!-- /.panel-body -->
             </div>
             <!-- /.panel -->
+        
         </div>
-    </div>
-
-    <!-- /#wrapper -->
+        <!-- END CONTAINER -->
 
     {% include "pie.html" %}
 

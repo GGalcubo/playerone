@@ -119,7 +119,9 @@ def registrarse(request):
     
 def dashboard(request):
     mensaje = 'INDEX'
-    complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
+    complejos = Complejo.objects.all()
+    #usuarioscomplejos__usuario__user__username=request.user.username)
+    print complejos
     complejo_sel = complejos[0]
     canchas_complejo = complejo_sel.cancha_set.all()
 
