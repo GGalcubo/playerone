@@ -1,219 +1,376 @@
 <!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.7
+Version: 4.7.1
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
 <html lang="es">
-{% include "cabecera.html" %}
-<body>
-    <div id="wrapper">
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+    {% include "cabecera.html" %}
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
+        <!-- BEGIN HEADER -->
+        <div class="page-header navbar navbar-fixed-top">
             <!-- /.navbar-top-links -->
             {% include "barra_top.html" %}
             <!-- /.navbar-static-side -->
             {% include "barra_lat.html" %}
-        </nav>
-        <div id="page-wrapper">
-            <div id="panel_principal" class="panel panel-default">
-                <div class="panel-heading">
-                    <h4>Agregar Complejo</h4>
-                </div>
-                <!-- /.panel-heading -->
-                <div class="panel-body">
-                    <form class="form-horizontal">
-                        <fieldset>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h3 class="formulario">Datos Principales</h3>
-                                    
-                                    <div class="obligatorio">
-                                        <div class="col-md-4">
-                                            <h5><b>Nombre</b></h5>
-                                            <input id="nombre_complejo" name="nombre_complejo" type="text" placeholder="Nombre del Complejo" class="form-control" required>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <h5><b>Dirección</b></h5>
-                                            <input id="direccion" name="direccion" type="text" placeholder="Direccion" class="form-control" required>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <h5><b>Teléfono</b></h5>
-                                            <input id="telefono" name="telefono" class="form-control" placeholder="Ej: 4555 5555" type="text" required>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h3 class="formulario">Datos Secundarios</h3>
-                                    <h5 class="formulario">Podés agregarlos luego desde Configuración</h5>
-                                    <br>
-                                    <div class="row opcional">
-                                        <div class="col-md-5">
-                                            <!-- CONTACTOS -->
-                                            <div class="form-group">
-                                                <label class="col-md-12 control-label centrado">Contactos</label>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="">E-mail</label> 
-                                                    <div class="col-md-9">
-                                                        <input id="" name="" type="text" placeholder="Ej: tucomplejo@ejemplo.com" class="form-control input-md">
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="">Web</label>  
-                                                    <div class="col-md-9">
-                                                        <input id="" name="" type="text" placeholder="Ej: tucomplejo.com.ar" class="form-control input-md">
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label" for="">Facebook</label>  
-                                                    <div class="col-md-9">
-                                                        <input id="" name="" type="text" placeholder="Ej: www.facebook.com/tucomplejo" class="form-control input-md">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <!-- SERVICIOS -->
-                                            <div class="form-group">
-                                                <label class="col-md-12 control-label centrado" for="checkboxes">Servicios</label>
-
-                                                    <div class="row">
-                                                        <div class="col-sm-4">
-                                                            <div class="checkbox">
-                                                                <label for="checkboxes-0">
-                                                                    <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
-                                                                    Vestuarios
-                                                                </label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label for="checkboxes-1">
-                                                                <input type="checkbox" name="checkboxes" id="checkboxes-1" value="2">
-                                                                    Duchas &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                </label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label for="checkboxes-2">
-                                                                <input type="checkbox" name="checkboxes" id="checkboxes-2" value="3">
-                                                                    Bar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                </label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label for="checkboxes-3">
-                                                                <input type="checkbox" name="checkboxes" id="checkboxes-3" value="4">
-                                                                    Restaurant
-                                                                </label>
-                                                            </div>
-                                                        </div>
-
-
-
-                                                        <div class="col-sm-4">
-                                                            <div class="checkbox">
-                                                                <label for="checkboxes-4">
-                                                                <input type="checkbox" name="checkboxes" id="checkboxes-4" value="5">
-                                                                    Parrilla &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                </label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label for="checkboxes-5">
-                                                                <input type="checkbox" name="checkboxes" id="checkboxes-5" value="6">
-                                                                    Wifi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                </label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label for="checkboxes-6">
-                                                                <input type="checkbox" name="checkboxes" id="checkboxes-6" value="7">
-                                                                    TV &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                </label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label for="checkboxes-7">
-                                                                <input type="checkbox" name="checkboxes" id="checkboxes-7" value="8">
-                                                                    Seguridad
-                                                                </label>
-                                                            </div>
-                                                        </div>
- 
-                                                    
-
-                                                        <div class="col-sm-4">
-                                                            <div class="checkbox">
-                                                                <label for="checkboxes-8">
-                                                                <input type="checkbox" name="checkboxes" id="checkboxes-8" value="9">
-                                                                    Estacionamiento
-                                                                </label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label for="checkboxes-9">
-                                                                <input type="checkbox" name="checkboxes" id="checkboxes-9" value="10">
-                                                                    Tarjeta Débito
-                                                                </label>
-                                                            </div>
-                                                            <div class="checkbox">
-                                                                <label for="checkboxes-9">
-                                                                <input type="checkbox" name="checkboxes" id="checkboxes-10" value="11">
-                                                                    Tarjeta Crédito
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                
-                                            </div>
-
-                                            <!-- EVENTOS -->
-                                            <div class="form-group">
-                                                <label class="col-md-12 control-label centrado" for="checkboxes">Eventos</label>
-                                                <div class="col-md-12">
-                                                    <div class="checkbox">
-                                                      <label for="checkboxes-10">
-                                                        <input type="checkbox" name="checkboxes" id="checkboxes-10" value="1">
-                                                        Festejos
-                                                      </label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                      <label for="checkboxes-11">
-                                                        <input type="checkbox" name="checkboxes" id="checkboxes-11" value="2">
-                                                        Escuelita
-                                                      </label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                      <label for="checkboxes-12">
-                                                        <input type="checkbox" name="checkboxes" id="checkboxes-12" value="3">
-                                                        Torneos
-                                                      </label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                      <label for="checkboxes-13">
-                                                        <input type="checkbox" name="checkboxes" id="checkboxes-13" value="4">
-                                                        Colegios
-                                                      </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- BOTONES -->
-                            <div class="form-group padre">
-                              <div class="col-md-12 hijo">
-                                <button id="" name="" class="btn btn-success">Agregar</button>
-                                <button id="" name="" class="btn btn-danger">Cancelar</button>
-                              </div>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-                <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
         </div>
-    </div>
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
 
-    <!-- /#wrapper -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <div id="page-wrapper">
 
-    {% include "pie.html" %}
-    
-</body>
+                        <h1 class="page-title"> Formulario de Alta de Complejo.
+                            <small>Algún comentario en letra chica o nada...</small>
+                        </h1>
+                        <!-- <div class="page-bar">
+                            <ul class="page-breadcrumb">
+                                <li>
+                                    <i class="icon-home"></i>
+                                    <a href="index.html">Home</a>
+                                    <i class="fa fa-angle-right"></i>
+                                </li>
+                                <li>
+                                    <span>Form Stuff</span>
+                                </li>
+                            </ul>
+                            <div class="page-toolbar">
+                                <div class="btn-group pull-right">
+                                    <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Actions
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-bell"></i> Action</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-shield"></i> Another action</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-user"></i> Something else here</a>
+                                        </li>
+                                        <li class="divider"> </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-bag"></i> Separated link</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- END PAGE HEADER-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- BEGIN VALIDATION STATES-->
+                                <div class="portlet light portlet-fit portlet-form ">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class=" icon-list font-red"></i>
+                                            <span class="caption-subject font-red sbold uppercase">Datos principales del Complejo</span>
+                                        </div>
+                                        <div class="actions">
+                                            <a class="btn btn-circle btn-icon-only blue" href="javascript:;">
+                                                <i class="icon-cloud-upload"></i>
+                                            </a>
+                                            <a class="btn btn-circle btn-icon-only green" href="javascript:;">
+                                                <i class="icon-wrench"></i>
+                                            </a>
+                                            <a class="btn btn-circle btn-icon-only red" href="javascript:;">
+                                                <i class="icon-trash"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <!-- BEGIN FORM-->
+                                        <form action="#">
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-line-input form-md-floating-label has-info">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <label for="form_control_1">Nombre</label>
+                                                                <span class="help-block">Nombre del Complejo</span>
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-user"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-line-input form-md-floating-label has-info">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <label for="form_control_1">Dirección</label>
+                                                                <span class="help-block">Dirección del Complejo</span>
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-map-marker"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-line-input form-md-floating-label has-info">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <label for="form_control_1">Teléfono</label>
+                                                                <span class="help-block">Teléfono del Complejo</span>
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-phone-square"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <a href="javascript:;" class="btn green">Guardar</a>
+                                                        <a href="javascript:;" class="btn red">Cancelar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!-- END FORM-->
+                                    </div>
+                                </div>
+                                <!-- END VALIDATION STATES-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- BEGIN VALIDATION STATES-->
+                                <div class="portlet light portlet-fit portlet-form ">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class=" icon-layers font-red"></i>
+                                            <span class="caption-subject font-red sbold uppercase">Datos secundarios del Complejo</span>
+                                        </div>
+                                        <div class="actions">
+                                            <a class="btn btn-circle btn-icon-only blue" href="javascript:;">
+                                                <i class="icon-cloud-upload"></i>
+                                            </a>
+                                            <a class="btn btn-circle btn-icon-only green" href="javascript:;">
+                                                <i class="icon-wrench"></i>
+                                            </a>
+                                            <a class="btn btn-circle btn-icon-only red" href="javascript:;">
+                                                <i class="icon-trash"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <!-- BEGIN FORM-->
+                                        <form action="#">
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-line-input form-md-floating-label has-info">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <label for="form_control_1">e-Mail</label>
+                                                                <span class="help-block">Dirección de e-Mail del Complejo</span>
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-envelope"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-line-input form-md-floating-label has-info">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <label for="form_control_1">Web</label>
+                                                                <span class="help-block">Página web del Complejo</span>
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-globe"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-line-input form-md-floating-label has-info">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <label for="form_control_1">Facebook</label>
+                                                                <span class="help-block">Página de Facebook del Complejo</span>
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-facebook-square"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group form-md-checkboxes">
+                                                            <label class="col-md-12 control-label" for="form_control_1">Servicios</label>
+                                                            <div class="col-md-6">
+                                                                <div class="md-checkbox-list">
+                                                                    <div class="md-checkbox">
+                                                                        <input type="checkbox" id="checkbox1_1" class="md-check">
+                                                                        <label for="checkbox1_1">
+                                                                            <span></span>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>Vestuarios</label>
+                                                                    </div>
+                                                                    <div class="md-checkbox">
+                                                                        <input type="checkbox" id="checkbox1_2" class="md-check">
+                                                                        <label for="checkbox1_2">
+                                                                            <span></span>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>Duchas</label>
+                                                                    </div>
+                                                                    <div class="md-checkbox">
+                                                                        <input type="checkbox" id="checkbox1_3" class="md-check">
+                                                                        <label for="checkbox1_3">
+                                                                            <span></span>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>Bar</label>
+                                                                    </div>
+                                                                    <div class="md-checkbox">
+                                                                        <input type="checkbox" id="checkbox1_4" class="md-check">
+                                                                        <label for="checkbox1_4">
+                                                                            <span></span>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>Restaurant</label>
+                                                                    </div>
+                                                                    <div class="md-checkbox">
+                                                                        <input type="checkbox" id="checkbox1_5" class="md-check">
+                                                                        <label for="checkbox1_5">
+                                                                            <span></span>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>Parrilla</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="md-checkbox-list">
+                                                                    <div class="md-checkbox">
+                                                                        <input type="checkbox" id="checkbox1_6" class="md-check">
+                                                                        <label for="checkbox1_6">
+                                                                            <span></span>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>Wifi</label>
+                                                                    </div>
+                                                                    <div class="md-checkbox">
+                                                                        <input type="checkbox" id="checkbox1_7" class="md-check">
+                                                                        <label for="checkbox1_7">
+                                                                            <span></span>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>TV</label>
+                                                                    </div>
+                                                                    <div class="md-checkbox">
+                                                                        <input type="checkbox" id="checkbox1_8" class="md-check">
+                                                                        <label for="checkbox1_8">
+                                                                            <span></span>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>Seguridad</label>
+                                                                    </div>
+                                                                    <div class="md-checkbox">
+                                                                        <input type="checkbox" id="checkbox1_9" class="md-check">
+                                                                        <label for="checkbox1_9">
+                                                                            <span></span>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>Estacionamiento</label>
+                                                                    </div>
+                                                                    <div class="md-checkbox">
+                                                                        <input type="checkbox" id="checkbox1_10" class="md-check">
+                                                                        <label for="checkbox1_10">
+                                                                            <span></span>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>Tarjeta de Débito/Crédito</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group form-md-checkboxes">
+                                                            <label class="col-md-12 control-label" for="form_control_2">Eventos</label>
+                                                            <div class="col-md-12">
+                                                                <div class="md-checkbox-list">
+                                                                    <div class="md-checkbox">
+                                                                        <input type="checkbox" id="checkbox2_1" class="md-check">
+                                                                        <label for="checkbox2_1">
+                                                                            <span></span>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>Festejos</label>
+                                                                    </div>
+                                                                    <div class="md-checkbox">
+                                                                        <input type="checkbox" id="checkbox2_2" class="md-check">
+                                                                        <label for="checkbox2_2">
+                                                                            <span></span>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>Escuelita</label>
+                                                                    </div>
+                                                                    <div class="md-checkbox">
+                                                                        <input type="checkbox" id="checkbox2_3" class="md-check">
+                                                                        <label for="checkbox2_3">
+                                                                            <span></span>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>Torneos</label>
+                                                                    </div>
+                                                                    <div class="md-checkbox">
+                                                                        <input type="checkbox" id="checkbox2_4" class="md-check">
+                                                                        <label for="checkbox2_4">
+                                                                            <span></span>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>Colegios</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <a href="javascript:;" class="btn green">Guardar</a>
+                                                        <a href="javascript:;" class="btn red">Cancelar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!-- END FORM-->
+                                    </div>
+                                </div>
+                                <!-- END VALIDATION STATES-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+
+        </div>
+        <!-- END CONTAINER -->
+        {% include "pie.html" %}
+        
+    </body>
+
 </html>
