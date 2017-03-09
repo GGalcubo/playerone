@@ -55,7 +55,7 @@ ROOT_URLCONF = 'playerone.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/paginas/playerone/templates'],      
+        'DIRS': ['C:/Users/Jere/Desktop/paginas/playerone/templates'],      
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

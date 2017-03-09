@@ -30,7 +30,7 @@
         <link href="{% static 'web/assets/global/css/plugins.min.css' %}" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN PAGE LEVEL STYLES -->
-        <link href="{% static 'web/assets/pages/css/login-4.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'web/assets/css/login-4.css' %}" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <!-- END THEME LAYOUT STYLES -->
@@ -53,7 +53,7 @@
         <!-- BEGIN LOGO -->
         <div class="logo">
             <a href="index.html">
-                <img src="{% static 'web/assets/pages/img/logo-big.png' %}" alt="" /> </a>
+                <img src="{% static 'web/assets/img/logo-big.png' %}" alt="" /> </a>
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->
@@ -83,7 +83,7 @@
                         <input type="checkbox" name="remember" value="1" /> Recordame
                         <span></span>
                     </label>
-                    <button type="submit" class="btn green pull-right"> Login </button>
+                    <button type="button" class="btn green pull-right"> Login </button>
                 </div>
                 <!--div class="login-options">
                     <h4>Or login with</h4>
@@ -103,13 +103,13 @@
                     </ul>
                 </div -->
                 <div class="forget-password">
-                    <h4>Olvidaste tu password?</h4>
-                    <p> No te preocupes, click
-                        <a href="javascript:;" id="forget-password"> AQUI </a> para resetear tu password. </p>
+                    <h4>Olvidaste tu password ?</h4>
+                    <p> no te preocupes, click
+                        <a style="color: #1aeaa7;" href="javascript:;" id="forget-password"> AQUI </a> resetear tu password. </p>
                 </div>
                 <div class="create-account">
-                    <p> Todavía no tenes tu cuenta ?&nbsp;
-                        <a href="javascript:;" id="register-btn"> Create una! </a>
+                    <p> Todavia no tenes tu cuenta ?&nbsp;
+                        <a style="color: #1aeaa7;" href="javascript:;" id="register-btn"> CREATE UNA! </a>
                     </p>
                 </div>
             </form>
@@ -132,7 +132,7 @@
             <!-- BEGIN REGISTRATION FORM -->
             <form class="register-form" action="index.html" method="post">
                 <h3>Registrate</h3>
-                <p> Ingresá tus datos personales debajo: </p>
+                <p> Completa los campos a continuacion: </p>
                 <div class="form-group">
                     <label class="control-label visible-ie8 visible-ie9">Nombre Completo</label>
                     <div class="input-icon">
@@ -147,14 +147,14 @@
                         <input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email" /> </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Teléfono</label>
+                    <label class="control-label visible-ie8 visible-ie9">Telefono</label>
                     <div class="input-icon">
                         <i class="fa fa-check"></i>
                         <input class="form-control placeholder-no-fix" type="text" placeholder="Telefono" name="telefono" /> </div>
                 </div>
                 <p> Datos de la cuenta: </p>
                 <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Username</label>
+                    <label class="control-label visible-ie8 visible-ie9">Usuario</label>
                     <div class="input-icon">
                         <i class="fa fa-user"></i>
                         <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" /> </div>
@@ -166,7 +166,7 @@
                         <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password" /> </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
+                    <label class="control-label visible-ie8 visible-ie9">Repetir Password</label>
                     <div class="controls">
                         <div class="input-icon">
                             <i class="fa fa-check"></i>
@@ -197,7 +197,8 @@
         </div>
         <!-- END LOGIN -->
         <!-- BEGIN COPYRIGHT -->
-        <div class="copyright"> 2017 &copy; Galcubo - Player One. </div>
+        <div style="background: url(/static/web/assets/img/bg-opacity.png) repeat; width: 360px;
+    margin: 0 auto;"  class="copyright"> 2017 &copy; Galcubo - Player One. </div>
         <!-- END COPYRIGHT -->
         <!--[if lt IE 9]>
 <script src="{% static 'web/assets/global/plugins/respond.min.js"></script>
