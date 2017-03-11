@@ -16,24 +16,36 @@ var TableDatatablesEditable = function () {
         function editRow(oTable, nRow) {
             var aData = oTable.fnGetData(nRow);
             var jqTds = $('>td', nRow);
-            jqTds[0].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[0] + '">';
-            jqTds[1].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[1] + '">';
-            jqTds[2].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[2] + '">';
-            jqTds[3].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[3] + '">';
-            jqTds[4].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[4] + '">';
-            jqTds[5].innerHTML = '<input type="text" class="form-control input-small" value="' + aData[5] + '">';
+
+            jqTds[0].innerHTML = '<input type="text" class="form-control" value="' + aData[0] + '">';
+            jqTds[1].innerHTML = '<select id="superficie" class="form-control" name=""><option value="1">Sintético</option><option value="2">Baldosa</option><option value="3">Flotante</option><option value="4">Carpeta</option><option value="5">Polvo de Ladrillo</option></select>';
+            jqTds[2].innerHTML = '<input type="text" class="form-control" value="' + aData[2] + '">';
+            jqTds[3].innerHTML = '<select id="deporte" class="form-control" name=""><option value="1">Futbol</option><option value="2">Hockey</option><option value="3">Basket</option><option value="4">Tenis</option><option value="5">Handball</option></select>';
+            jqTds[4].innerHTML = '<input type="text" class="form-control" value="' + aData[4] + '">';
+            jqTds[5].innerHTML = '<select id="caracteristicas" class="form-control" name=""><option value="1">Techada</option><option value="2">Luz</option></select>';
             jqTds[6].innerHTML = '<a class="edit" href="">Guardar</a>';
             jqTds[7].innerHTML = '<a class="cancel" href="">Cancelar</a>';
+
         }
 
         function saveRow(oTable, nRow) {
             var jqInputs = $('input', nRow);
+
+            var s = document.getElementById("superficie");
+            var superficie = s.options[s.selectedIndex].text;
+
+            var d = document.getElementById("deporte");
+            var deporte = d.options[d.selectedIndex].text;
+
+            var c = document.getElementById("caracteristicas");
+            var caracteristicas = c.options[c.selectedIndex].text;
+
             oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
-            oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-            oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
-            oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
-            oTable.fnUpdate(jqInputs[4].value, nRow, 4, false);
-            oTable.fnUpdate(jqInputs[5].value, nRow, 5, false);
+            oTable.fnUpdate(superficie, nRow, 1, false);
+            oTable.fnUpdate(jqInputs[1].value, nRow, 2, false);
+            oTable.fnUpdate(deporte, nRow, 3, false);
+            oTable.fnUpdate(jqInputs[2].value, nRow, 4, false);
+            oTable.fnUpdate(caracteristicas, nRow, 5, false);
             oTable.fnUpdate('<a class="edit" href="">Editar</a>', nRow, 6, false);
             oTable.fnUpdate('<a class="delete" href="">Eliminar</a>', nRow, 7, false);
             oTable.fnDraw();
@@ -47,7 +59,9 @@ var TableDatatablesEditable = function () {
             oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
             oTable.fnUpdate(jqInputs[4].value, nRow, 4, false);
             oTable.fnUpdate(jqInputs[5].value, nRow, 5, false);
-            oTable.fnUpdate('<a class="edit" href="">Editar</a>', nRow, 6, false);
+            oTable.fnUpdate(jqInputs[6].value, nRow, 6, false);
+            oTable.fnUpdate(jqInputs[7].value, nRow, 7, false);
+            oTable.fnUpdate('<a class="edit" href="">Editar</a>', nRow, 8, false);
             oTable.fnDraw();
         }
 
@@ -71,7 +85,7 @@ var TableDatatablesEditable = function () {
             //},
 
             // set the initial value
-            "pageLength": 5,
+            "pageLength": 15,
 
             "language": {
                 "lengthMenu": " _MENU_ records"
