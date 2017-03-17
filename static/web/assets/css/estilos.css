@@ -1,0 +1,19 @@
+/* TABLA RESERVAS */
+
+a {
+    color: #fdfdfd;
+}
+
+a:active, a:focus, a:hover {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #d2d2d2;
+}
+
+/* DATE PAGINATOR */
+
+#datepaginator {
+    padding: 10px 20px 0px;
+}

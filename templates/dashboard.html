@@ -21,37 +21,54 @@
         <div class="page-content">
           <div id="page-wrapper">
             <input type="hidden" name="fecha" id="fecha" value="{{ fecha }}">
-            <!-- guido es ju...-->
-            <div id="panel_principal" class="panel panel-default">
-              <div class="panel-heading">
-                <h4>Complejo: {{ complejo_sel.nombre }} - Día: {{ fecha }}</h4>
-              </div>
-              <!-- /.panel-heading -->
-              <div class="panel-body">
-                <div id="tabla" class="col-md-12">
-                  <div class="table-responsive">
-                    <table class="table table-inverse">
-                      <thead>
-                        <tr>
-                          <th class="angosto">Horario</th>
-                          {% for cancha in canchas_complejo %}
-                            <th style="width:{{ancho}}%" >{{ cancha.nombre }}</th>
-                          {% endfor %}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {% for linea in tabla %}
-                          <tr>
-                            <td class="angosto">{{ linea|get_item:'horario' }}</td>
-                            {% for cancha in canchas_complejo %}
-                              <td class="bg-{{ linea|get_item:cancha.nombre }}"><a onclick="abrirHorario('{{ linea|get_item:'horario' }}', '{{ linea|get_item:cancha.id }}', '{{ cancha.id  }}');" >{{ linea|get_item:cancha.nombre|title }}</a></td>
-                            {% endfor %}
-                          </tr>
-                        {% endfor %}
-                      </tbody>
-                    </table>
+            <!-- BEGIN BORDERED TABLE PORTLET-->
+            <div class="portlet light portlet-fit ">
+                <div class="portlet-title">
+                  
+                  <!-- BEGIN PORTLET-->
+                  <div class="portlet light" id="datepaginator">
+                      <div class="portlet-body">
+                          <!-- <h3>Default Date Paginator</h3> -->
+                          <div id="datepaginator_sample_1"> </div>
+                          <!-- <h3>On Date Selected Event Hanlder(try to select a date)</h3>
+                          <div id="datepaginator_sample_4"> </div>
+                          <h3>Large Date Paginator</h3>
+                          <div id="datepaginator_sample_2"> </div>
+                          <h3>Small Date Paginator</h3>
+                          <div id="datepaginator_sample_3"> </div> -->
+                      </div>
                   </div>
+                  <!-- END PORTLET-->
+                    
                 </div>
+                <div class="portlet-body">
+                  <h4>Complejo: {{ complejo_sel.nombre }} - Día: {{ fecha }}</h4>
+                    <div class="table-scrollable">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th> Horario </th>
+                                  {% for cancha in canchas_complejo %}
+                                    <th style="width:{{ancho}}%" >{{ cancha.nombre }}</th>
+                                  {% endfor %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                              {% for linea in tabla %}
+                                <tr>
+                                  <td class="angosto">{{ linea|get_item:'horario' }}</td>
+                                {% for cancha in canchas_complejo %}
+                                  <td class="bg-{{ linea|get_item:cancha.nombre }}"><span class="label label-sm label-info"><a onclick="abrirHorario('{{ linea|get_item:'horario' }}', '{{ linea|get_item:cancha.id }}', '{{ cancha.id  }}');" >{{ linea|get_item:cancha.nombre|title }}</a></span></td>
+                                {% endfor %}
+                                </tr>
+                              {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- END BORDERED TABLE PORTLET-->
+            
                 <!-- Modal -->
                 <div class="modal fade" id="modalHorario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
@@ -127,11 +144,7 @@
                   </div>
                   <!-- /.modal-dialog -->
                 </div>
-              </div>
-              <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-            
+
           </div>
         </div>
       </div>
