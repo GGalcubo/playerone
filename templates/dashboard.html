@@ -25,7 +25,7 @@
             <div class="portlet light portlet-fit ">
                 <div class="portlet-title">
                   
-                  <!-- BEGIN PORTLET-->
+                  <!-- BEGIN PORTLET DATE PAGINATOR -->
                   <div class="portlet light" id="datepaginator">
                       <div class="portlet-body">
                           <!-- <h3>Default Date Paginator</h3> -->
@@ -38,27 +38,27 @@
                           <div id="datepaginator_sample_3"> </div> -->
                       </div>
                   </div>
-                  <!-- END PORTLET-->
+                  <!-- END PORTLET DATE PAGINATOR -->
                     
                 </div>
                 <div class="portlet-body">
-                  <h4>Complejo: {{ complejo_sel.nombre }} - Día: {{ fecha }}</h4>
+                  <h4 class="centrado titulo">Complejo: {{ complejo_sel.nombre }} - Día: {{ fecha }}</h4>
                     <div class="table-scrollable">
-                        <table class="table table-bordered table-hover">
+                        <table id="tabla_reservas" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th> Horario </th>
+                                    <th class="centrado"> Horario </th>
                                   {% for cancha in canchas_complejo %}
-                                    <th style="width:{{ancho}}%" >{{ cancha.nombre }}</th>
+                                    <th class="centrado" style="width:{{ancho}}%" >{{ cancha.nombre }}</th>
                                   {% endfor %}
                                 </tr>
                             </thead>
                             <tbody>
                               {% for linea in tabla %}
                                 <tr>
-                                  <td class="angosto">{{ linea|get_item:'horario' }}</td>
+                                  <td class="centrado">{{ linea|get_item:'horario' }}</td>
                                 {% for cancha in canchas_complejo %}
-                                  <td class="bg-{{ linea|get_item:cancha.nombre }}"><span class="label label-sm label-info"><a onclick="abrirHorario('{{ linea|get_item:'horario' }}', '{{ linea|get_item:cancha.id }}', '{{ cancha.id  }}');" >{{ linea|get_item:cancha.nombre|title }}</a></span></td>
+                                  <td class="centrado"><span class="label label-sm label-{{ linea|get_item:cancha.nombre }}"><a onclick="abrirHorario('{{ linea|get_item:'horario' }}', '{{ linea|get_item:cancha.id }}', '{{ cancha.id  }}');" >{{ linea|get_item:cancha.nombre|title }}</a></span></td>
                                 {% endfor %}
                                 </tr>
                               {% endfor %}
@@ -82,7 +82,7 @@
                           <fieldset>
                             <div class="form-group">
                               <label class="col-sm-2 control-label" for="">Fecha</label>
-                              <div class="col-sm-3">
+                              <div class="col-sm-4">
                                 <input id="fecha_modal" name="fecha_modal" type="text" placeholder="Jueves 22/09" class="form-control" required="">
                               </div>
                               <label class="col-sm-2 control-label" for="">Cancha</label>
@@ -96,7 +96,7 @@
                             </div>
                             <div class="form-group">
                               <label class="col-sm-2 control-label" for="">Desde</label>
-                              <div class="col-sm-3">
+                              <div class="col-sm-4">
                                 <select id="horarios_select" class="form-control">
                                   {% for i in lista_horarios_text %}
                                     <option>{{ i }}</option>
@@ -104,7 +104,7 @@
                                 </select>
                               </div>
                               <label class="col-sm-2 control-label" for="">Hasta</label>
-                              <div class="col-sm-3">
+                              <div class="col-sm-4">
                                 <select id="horarios_hasta_select" class="form-control">
                                   {% for i in lista_horarios_text %}
                                     <option>{{ i }}</option>
@@ -115,11 +115,11 @@
                             </div>
                             <div class="form-group">
                               <label class="col-sm-2 control-label" for="">Nombre</label>
-                              <div class="col-sm-3">
+                              <div class="col-sm-4">
                                 <input id="" name="" type="text" placeholder="Jorge" class="form-control" required="">
                               </div>
                               <label class="col-sm-2 control-label" for="">Teléfono</label>
-                              <div class="col-sm-3">
+                              <div class="col-sm-4">
                                 <div class="input-group">
                                   <!-- span class="input-group-addon">+54 9</span -->
                                   <input id="" name="" class="form-control" placeholder="1136561212" type="text" required="">
@@ -128,7 +128,7 @@
                             </div>
                             <div class="form-group">
                               <label class="col-sm-2 control-label" for="">Seña</label>
-                              <div class="col-sm-3">
+                              <div class="col-sm-4">
                                 <input id="" name="" type="text" placeholder="$200" class="form-control" required="">
                               </div>
                             </div>

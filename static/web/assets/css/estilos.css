@@ -1,3 +1,27 @@
+/* DATE PAGINATOR */
+
+#datepaginator {
+    padding: 10px 20px 10px;
+}
+
+.portlet {
+  margin-bottom: 0px;
+
+}
+
+.portlet>.portlet-title {
+    margin-bottom: 0px;
+}
+
+.portlet.light.portlet-fit>.portlet-title {
+    padding: 0px 20px 0px;
+}
+
+.portlet.light .portlet-body {
+    padding: 10px 0px 10px;
+}
+
+
 /* TABLA RESERVAS */
 
 a {
@@ -12,8 +36,39 @@ a:hover {
     color: #d2d2d2;
 }
 
-/* DATE PAGINATOR */
+.label-libre {
+    background-color: #659be0;
+}
 
-#datepaginator {
-    padding: 10px 20px 0px;
+.label-reservada {
+    background-color: #ed6b75;
+}
+
+.centrado {
+  text-align: center;
+}
+
+.titulo {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+
+/* MODAL */
+
+.modal .modal-header {
+    text-align: center;
+    background-color: #66aa66;
+}
+
+h4#myModalLabel.modal-title {
+  font-weight: bold;
+}
+
+button.close {
+    opacity: 0.5;
+}
+
+.close:focus, .close:hover {
+    opacity: 1;
 }
