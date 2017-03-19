@@ -1,7 +1,7 @@
 /* DATE PAGINATOR */
 
 #datepaginator {
-    padding: 10px 20px 10px;
+  padding: 10px 20px 10px;
 }
 
 .portlet {
@@ -10,38 +10,38 @@
 }
 
 .portlet>.portlet-title {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .portlet.light.portlet-fit>.portlet-title {
-    padding: 0px 20px 0px;
+  padding: 10px 20px 10px;
 }
 
 .portlet.light .portlet-body {
-    padding: 10px 0px 10px;
+  padding: 10px 0px 10px;
 }
 
 
 /* TABLA RESERVAS */
 
 a {
-    color: #fdfdfd;
+  color: #fdfdfd;
 }
 
 a:active, a:focus, a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #d2d2d2;
+  color: #d2d2d2;
 }
 
 .label-libre {
-    background-color: #659be0;
+  background-color: #659be0;
 }
 
 .label-reservada {
-    background-color: #ed6b75;
+  background-color: #ed6b75;
 }
 
 .centrado {
@@ -57,8 +57,8 @@ a:hover {
 /* MODAL */
 
 .modal .modal-header {
-    text-align: center;
-    background-color: #66aa66;
+  text-align: center;
+  background-color: #66aa66;
 }
 
 h4#myModalLabel.modal-title {
@@ -66,9 +66,21 @@ h4#myModalLabel.modal-title {
 }
 
 button.close {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .close:focus, .close:hover {
-    opacity: 1;
+  opacity: 1;
+}
+
+/* FORMS */
+
+a.edit, a.delete, a.cancel {
+  color: #5c5c5c;
+}
+
+.borde {
+  border-bottom: 1px solid #327ad5;
+  padding-top: 20px;
+  padding-bottom: 8px;
 }

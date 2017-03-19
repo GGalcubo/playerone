@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^recuperar/', views.recuperar, name='recuperar'),
     url(r'^dashboard/', views.dashboard, name='dashboard'),
     url(r'^form_alta_cancha/', views.form_alta_cancha, name='form_alta_cancha'),
+    url(r'^listado_canchas/', views.listado_canchas, name='listado_canchas'),
     url(r'^form_alta_complejo/', views.form_alta_complejo, name='form_alta_complejo'),
     url(r'^$', views.index, name='index'),
 

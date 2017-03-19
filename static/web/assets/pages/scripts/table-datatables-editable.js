@@ -20,9 +20,9 @@ var TableDatatablesEditable = function () {
             jqTds[0].innerHTML = '<input type="text" class="form-control" value="' + aData[0] + '">';
             jqTds[1].innerHTML = '<select id="superficie" class="form-control" name=""><option value="1">Sintético</option><option value="2">Baldosa</option><option value="3">Flotante</option><option value="4">Carpeta</option><option value="5">Polvo de Ladrillo</option></select>';
             jqTds[2].innerHTML = '<input type="text" class="form-control" value="' + aData[2] + '">';
-            jqTds[3].innerHTML = '<select id="deporte" class="form-control" name="select_multi" multiple><option value="1">Futbol</option><option value="2">Hockey</option><option value="3">Basket</option><option value="4">Tenis</option><option value="5">Handball</option></select><span class="help-block" style="font-size: 10px;"> Mantenga CTRL presionado para elegir más de una </span>';
+            jqTds[3].innerHTML = '<select id="deporte" class="form-control" name="" multiple><option value="1">Futbol</option><option value="2">Hockey</option><option value="3">Basket</option><option value="4">Tenis</option><option value="5">Handball</option></select><span class="help-block" style="font-size: 10px;"> Mantenga CTRL presionado para elegir más de una opción </span>';
             jqTds[4].innerHTML = '<input type="text" class="form-control" value="' + aData[4] + '">';
-            jqTds[5].innerHTML = '<select id="caracteristicas" class="form-control" name="select_multi" multiple><option value="1"></option><option value="2">Techada</option><option value="3">Luz</option></select><span class="help-block" style="font-size: 10px;"> Mantenga CTRL presionado para elegir más de una </span>';
+            jqTds[5].innerHTML = '<select id="caracteristicas" class="form-control" name="" multiple><option value="1"></option><option value="2">Techada</option><option value="3">Luz</option></select><span class="help-block" style="font-size: 10px;"> Mantenga CTRL presionado para elegir más de una opción </span>';
             jqTds[6].innerHTML = '<a class="edit" href="">Guardar</a>';
             jqTds[7].innerHTML = '<a class="cancel" href="">Cancelar</a>';
 

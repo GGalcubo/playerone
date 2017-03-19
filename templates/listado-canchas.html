@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.7
+Version: 4.7.1
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="es">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+    {% include "cabecera.html" %}
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
+        <!-- BEGIN HEADER -->
+        <div class="page-header navbar navbar-fixed-top">
+            <!-- /.navbar-top-links -->
+            {% include "barra_top.html" %}
+            <!-- /.navbar-static-side -->
+            {% include "barra_lat.html" %}
+        </div>
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <div id="page-wrapper">
+
+                        <!-- <h1 class="page-title"> Formulario de Alta de Cancha.
+                            <small>Algún comentario en letra chica o nada...</small>
+                        </h1> -->
+                        <!-- <div class="page-bar">
+                            <ul class="page-breadcrumb">
+                                <li>
+                                    <i class="icon-home"></i>
+                                    <a href="index.html">Home</a>
+                                    <i class="fa fa-angle-right"></i>
+                                </li>
+                                <li>
+                                    <span>Form Stuff</span>
+                                </li>
+                            </ul>
+                            <div class="page-toolbar">
+                                <div class="btn-group pull-right">
+                                    <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Actions
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-bell"></i> Action</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-shield"></i> Another action</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-user"></i> Something else here</a>
+                                        </li>
+                                        <li class="divider"> </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="icon-bag"></i> Separated link</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- END PAGE HEADER-->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                <div class="portlet light portlet-fit ">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="icon-list font-red"></i>
+                                            <span class="caption-subject font-red sbold uppercase">Listado de Canchas</span>
+                                        </div>
+                                        <!-- <div class="actions">
+                                            <div class="btn-group btn-group-devided" data-toggle="buttons">
+                                                <label class="btn btn-transparent red btn-outline btn-circle btn-sm active">
+                                                    <input type="radio" name="options" class="toggle" id="option1">Actions</label>
+                                                <label class="btn btn-transparent red btn-outline btn-circle btn-sm">
+                                                    <input type="radio" name="options" class="toggle" id="option2">Settings</label>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div class="table-toolbar">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="btn-group">
+                                                        <button id="sample_editable_1_new" class="btn green"> Agregar 
+                                                            <i class="fa fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="btn-group pull-right">
+                                                        <button class="btn green btn-outline dropdown-toggle" data-toggle="dropdown">
+                                                            <i class="fa fa-print"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu pull-right">
+                                                            <li>
+                                                                <a href="javascript:;"> Print </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:;"> Save as PDF </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:;"> Export to Excel </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                            <thead>
+                                                <tr>
+                                                    <th> Cancha </th>
+                                                    <th> Superficie </th>
+                                                    <th> Precio </th>
+                                                    <th> Deportes </th>
+                                                    <th> Jugadores </th>
+                                                    <th> Características </th>
+                                                    <th> Editar </th>
+                                                    <th> Eliminar </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td> Cilindro </td>
+                                                    <td> Sintetico </td>
+                                                    <td> 1000 </td>
+                                                    <td> Futbol </td>
+                                                    <td> 11 </td>
+                                                    <td>Techada</td>
+                                                    <td>
+                                                        <a class="edit" href="javascript:;"> Editar </a>
+                                                    </td>
+                                                    <td>
+                                                        <a class="delete" href="javascript:;"> Eliminar </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> Cilindro </td>
+                                                    <td> Sintetico </td>
+                                                    <td> 1000 </td>
+                                                    <td> Futbol </td>
+                                                    <td> 11 </td>
+                                                    <td>Luz</td>
+                                                    <td>
+                                                        <a class="edit" href="javascript:;"> Editar </a>
+                                                    </td>
+                                                    <td>
+                                                        <a class="delete" href="javascript:;"> Eliminar </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> Cilindro </td>
+                                                    <td> Sintetico </td>
+                                                    <td> 1000 </td>
+                                                    <td> Futbol </td>
+                                                    <td> 11 </td>
+                                                    <td>Techada, Luz</td>
+                                                    <td>
+                                                        <a class="edit" href="javascript:;"> Editar </a>
+                                                    </td>
+                                                    <td>
+                                                        <a class="delete" href="javascript:;"> Eliminar </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> Cilindro </td>
+                                                    <td> Sintetico </td>
+                                                    <td> 1000 </td>
+                                                    <td> Futbol </td>
+                                                    <td> 11 </td>
+                                                    <td>Luz</td>
+                                                    <td>
+                                                        <a class="edit" href="javascript:;"> Editar </a>
+                                                    </td>
+                                                    <td>
+                                                        <a class="delete" href="javascript:;"> Eliminar </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> Cilindro </td>
+                                                    <td> Sintetico </td>
+                                                    <td> 1000 </td>
+                                                    <td> Futbol </td>
+                                                    <td> 11 </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <a class="edit" href="javascript:;"> Editar </a>
+                                                    </td>
+                                                    <td>
+                                                        <a class="delete" href="javascript:;"> Eliminar </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> Cilindro </td>
+                                                    <td> Sintetico </td>
+                                                    <td> 1000 </td>
+                                                    <td> Futbol </td>
+                                                    <td> 11 </td>
+                                                    <td>Techada, Luz</td>
+                                                    <td>
+                                                        <a class="edit" href="javascript:;"> Editar </a>
+                                                    </td>
+                                                    <td>
+                                                        <a class="delete" href="javascript:;"> Eliminar </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- END EXAMPLE TABLE PORTLET-->
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+
+        </div>
+        <!-- END CONTAINER -->
+        {% include "pie.html" %}
+
+    </body>
+
+</html>
