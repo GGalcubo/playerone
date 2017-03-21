@@ -6,11 +6,11 @@ from django.template.defaulttags import register
 from django.http import HttpResponse
 from django.utils.translation import ugettext
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from .models import Usuario, Telefono, TelefonosUsuario, TipoTelefono, TipoUsuario, Cancha, Complejo, Reserva
+from .models import Usuario, Telefono, TelefonosUsuario, TipoTelefono, TipoUsuario, Cancha, Complejo, Reserva, UsuariosComplejos
 import json
 import datetime
 
@@ -19,6 +19,11 @@ def index(request):
     
     context = {'mensaje': mensaje,}
     return render(request, 'index.html', context)
+
+def salir(request):
+    mensaje = ''
+    logout(request)
+    return redirect(reverse('ingresar'))
 
 def recuperar(request):
 
@@ -40,9 +45,10 @@ def recuperar(request):
 
 def ingresar(request):
     mensaje = ''
-    
+
     if request.method == 'GET':
-        pass
+        if request.user.is_authenticated():
+            return redirect(reverse('dashboard'))
     elif request.method == 'POST':
 
         username = request.POST.get('email')
@@ -59,8 +65,9 @@ def ingresar(request):
                 else:
                     mensaje = 'La cuenta esta inactiva. Comuniquese con el administrador.'
             else:        
-                mensaje = 'Nombre de usuario o contraseña no valido.'
+                mensaje = 'Nombre de usuario o password no valido.'
     
+        print mensaje
     
     context = {'mensaje': mensaje,}
     return render(request, 'ingresar.html', context)
@@ -72,33 +79,30 @@ def registrarse(request):
         pass
     elif request.method == 'POST':
         try:
-            nombre      = request.POST.get('nombre')
-            apellido    = request.POST.get('apellido')
-            telefonotxt = request.POST.get('telefono')
+            nombre      = request.POST.get('fullname')
             email       = request.POST.get('email')
+            telefono_n  = request.POST.get('telefono')
+            complejo_n  = request.POST.get('complejo')
             password    = request.POST.get('password')
-            repassword  = request.POST.get('password_confirmation')
+            rpassword   = request.POST.get('rpassword')
 
             users = User.objects.filter(email=email)
             
             if len(users) > 0:
                 mensaje = "Ya existe el email con el que desea registrarse."
-                dict = {'error': mensaje}
-                return HttpResponse(json.dumps(dict), content_type="application/json")
             else:
                 user = User.objects.create_user(email, email, password)
                 user.first_name = nombre
-                user.last_name  = apellido
                 user.is_staff = False
                 user.save()
 
                 usuario = Usuario()
                 usuario.user = user
-                usuario.tipo_usuario = TipoUsuario.objects.get(nombre = 'Trial')
+                usuario.tipo_usuario = TipoUsuario.objects.get(nombre = 'Administrador')
                 usuario.save()
                 
                 telefono = Telefono()
-                telefono.telefono = telefonotxt
+                telefono.telefono = telefono_n
                 telefono.tipoTelefono = TipoTelefono.objects.get(nombre = 'Particular')
                 telefono.comentario = 'Telefono ingresado en el proceso de registro.'
                 telefono.save()
@@ -108,20 +112,28 @@ def registrarse(request):
                 teleUsuario.telefono = telefono
                 teleUsuario.save()
 
+                complejo = Complejo()
+                complejo.nombre = complejo_n
+                complejo.direccion = 'Direccion complejo'
+                complejo.save()
+
+                usu_compl = UsuariosComplejos()
+                usu_compl.complejo = complejo
+                usu_compl.usuario = usuario
+                usu_compl.save()
+
+                return redirect(reverse('dashboard'))
+
         except Exception as e:
             mensaje = str(e)
             
-        dict = {'error': mensaje}
-        return HttpResponse(json.dumps(dict), content_type="application/json")
-            
-    context = {'mensaje': mensaje,}
-    return render(request, 'registrarse.html', context)            
+    context = {'mensaje_nuevo': mensaje,}
+    return render(request, 'ingresar    .html', context)            
     
+@login_required
 def dashboard(request):
     mensaje = 'INDEX'
-    complejos = Complejo.objects.all()
-    #usuarioscomplejos__usuario__user__username=request.user.username)
-    print complejos
+    complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
     complejo_sel = complejos[0]
     canchas_complejo = complejo_sel.cancha_set.all()
 

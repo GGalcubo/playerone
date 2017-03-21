@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     
     #Sistema
+    url(r'^salir/', views.salir, name='salir'),
     url(r'^registrarse/', views.registrarse, name='registrarse'),
     url(r'^ingresar/', views.ingresar, name='ingresar'),
     url(r'^recuperar/', views.recuperar, name='recuperar'),
