@@ -1,3 +1,16 @@
+/* LOGO */
+
+.page-header.navbar .page-logo .logo-default {
+    margin: 0;
+    width: 90px;
+}
+
+@media (min-width: 991px) {
+  .page-header.navbar .page-logo {
+      padding-left: 35px;
+  }
+}
+
 /* DATE PAGINATOR */
 
 #datepaginator {
@@ -83,4 +96,17 @@ a.edit, a.delete, a.cancel {
   border-bottom: 1px solid #327ad5;
   padding-top: 20px;
   padding-bottom: 8px;
+}
+
+
+/* LISTADO CANCHAS */
+
+a.boton {
+  width: 25px;
+  height: 25px;
+  padding: 1px;
+}
+
+.dataTables_length, .dataTables_filter, .dataTables_info {
+  display: none;
 }

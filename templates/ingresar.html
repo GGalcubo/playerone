@@ -34,7 +34,12 @@
         <!-- END PAGE LEVEL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> 
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'web/favico/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" href="{% static 'web/favico/favicon-32x32.png' %}" sizes="32x32">
+        <link rel="icon" type="image/png" href="{% static 'web/favico/favicon-16x16.png' %}" sizes="16x16">
+        <link rel="manifest" href="{% static 'web/favico/manifest.json' %}">
+        <link rel="mask-icon" href="{% static 'web/favico/safari-pinned-tab.svg' %}" color="#38ab36">
+        <meta name="theme-color" content="#ffffff"> 
 
         <style type="text/css">
             #home {
@@ -45,6 +50,11 @@
                 text-align: center;
                 width: 100%;
             }
+            
+            .logoP1 {width: 120px;}
+            
+            .login .logo {margin: 30px auto 20px auto;}
+
         </style>
     </head>
     <!-- END HEAD -->
@@ -53,7 +63,7 @@
         <!-- BEGIN LOGO -->
         <div class="logo">
             <a href="index.html">
-                <img src="{% static 'web/assets/img/logo-big.png' %}" alt="" /> </a>
+                <img src="{% static 'web/assets/img/logoplayerone.png' %}" alt="logo Player One" class="logoP1"/> </a>
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->
