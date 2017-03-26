@@ -176,8 +176,10 @@ def form_alta_cancha(request):
 def listado_canchas(request):
     mensaje = 'INDEX'
     complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
+    complejo_sel = complejos[0]
+    canchas_complejo = complejo_sel.cancha_set.all()
 
-    context = {'mensaje': mensaje, 'complejos': complejos, }
+    context = {'mensaje': mensaje, 'complejos': complejos,'canchas_complejo':canchas_complejo, 'complejo_sel':complejo_sel, }
     return render(request, 'listado-canchas.html', context)
 
 def form_alta_complejo(request):

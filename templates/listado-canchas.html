@@ -92,102 +92,20 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                {% for cancha in canchas_complejo %}
                                                 <tr>
-                                                    <td class="centrado">Cilindro</td>
-                                                    <td class="centrado">Sintético</td>
-                                                    <td class="centrado">1200</td>
-                                                    <td class="centrado">10</td>
-                                                    <td class="centrado">Fútbol</td>
+                                                    <td class="centrado">{{ cancha.nombre }}</td>
+                                                    <td class="centrado">{{ cancha.superficie }}</td>
+                                                    <td class="centrado">{{ cancha.precio }}</td>
+                                                    <td class="centrado">{{ cancha.cant_jugadores }}</td>
+                                                    <td class="centrado">{{ cancha.deporte }}</td>
                                                     <td class="centrado">Techada, Luz</td>
                                                     <td class="centrado">
                                                         <a class="btn btn-icon-only boton green" href="javascript:;"><i class="fa fa-pencil"></i></a>
                                                         <a class="btn btn-icon-only boton red" href="javascript:;"><i class="fa fa-times"></i></a>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="centrado">Cilindro</td>
-                                                    <td class="centrado">Sintético</td>
-                                                    <td class="centrado">1200</td>
-                                                    <td class="centrado">10</td>
-                                                    <td class="centrado">Fútbol</td>
-                                                    <td class="centrado">Techada, Luz</td>
-                                                    <td class="centrado">
-                                                        <a class="btn btn-icon-only boton green" href="javascript:;"><i class="fa fa-pencil"></i></a>
-                                                        <a class="btn btn-icon-only boton red" href="javascript:;"><i class="fa fa-times"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="centrado">Cilindro</td>
-                                                    <td class="centrado">Sintético</td>
-                                                    <td class="centrado">1200</td>
-                                                    <td class="centrado">10</td>
-                                                    <td class="centrado">Fútbol</td>
-                                                    <td class="centrado">Techada, Luz</td>
-                                                    <td class="centrado">
-                                                        <a class="btn btn-icon-only boton green" href="javascript:;"><i class="fa fa-pencil"></i></a>
-                                                        <a class="btn btn-icon-only boton red" href="javascript:;"><i class="fa fa-times"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="centrado">Cilindro</td>
-                                                    <td class="centrado">Sintético</td>
-                                                    <td class="centrado">1200</td>
-                                                    <td class="centrado">10</td>
-                                                    <td class="centrado">Fútbol</td>
-                                                    <td class="centrado">Techada, Luz</td>
-                                                    <td class="centrado">
-                                                        <a class="btn btn-icon-only boton green" href="javascript:;"><i class="fa fa-pencil"></i></a>
-                                                        <a class="btn btn-icon-only boton red" href="javascript:;"><i class="fa fa-times"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="centrado">Cilindro</td>
-                                                    <td class="centrado">Sintético</td>
-                                                    <td class="centrado">1200</td>
-                                                    <td class="centrado">10</td>
-                                                    <td class="centrado">Fútbol</td>
-                                                    <td class="centrado">Techada, Luz</td>
-                                                    <td class="centrado">
-                                                        <a class="btn btn-icon-only boton green" href="javascript:;"><i class="fa fa-pencil"></i></a>
-                                                        <a class="btn btn-icon-only boton red" href="javascript:;"><i class="fa fa-times"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="centrado">Cilindro</td>
-                                                    <td class="centrado">Sintético</td>
-                                                    <td class="centrado">1200</td>
-                                                    <td class="centrado">10</td>
-                                                    <td class="centrado">Fútbol</td>
-                                                    <td class="centrado">Techada, Luz</td>
-                                                    <td class="centrado">
-                                                        <a class="btn btn-icon-only boton green" href="javascript:;"><i class="fa fa-pencil"></i></a>
-                                                        <a class="btn btn-icon-only boton red" href="javascript:;"><i class="fa fa-times"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="centrado">Cilindro</td>
-                                                    <td class="centrado">Sintético</td>
-                                                    <td class="centrado">1200</td>
-                                                    <td class="centrado">10</td>
-                                                    <td class="centrado">Fútbol</td>
-                                                    <td class="centrado">Techada, Luz</td>
-                                                    <td class="centrado">
-                                                        <a class="btn btn-icon-only boton green" href="javascript:;"><i class="fa fa-pencil"></i></a>
-                                                        <a class="btn btn-icon-only boton red" href="javascript:;"><i class="fa fa-times"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="centrado">Cilindro</td>
-                                                    <td class="centrado">Sintético</td>
-                                                    <td class="centrado">1200</td>
-                                                    <td class="centrado">10</td>
-                                                    <td class="centrado">Fútbol</td>
-                                                    <td class="centrado">Techada, Luz</td>
-                                                    <td class="centrado">
-                                                        <a class="btn btn-icon-only boton green" href="javascript:;"><i class="fa fa-pencil"></i></a>
-                                                        <a class="btn btn-icon-only boton red" href="javascript:;"><i class="fa fa-times"></i></a>
-                                                    </td>
-                                                </tr>
+                                                {% endfor %}
                                             </tbody>
                                         </table>
                                     </div>

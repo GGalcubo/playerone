@@ -107,6 +107,6 @@ a.boton {
   padding: 1px;
 }
 
-.dataTables_length, .dataTables_filter, .dataTables_info {
+.dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate {
   display: none;
 }
