@@ -189,6 +189,14 @@ def form_alta_complejo(request):
     context = {'mensaje': mensaje, 'complejos': complejos, }
     return render(request, 'form-alta-complejo.html', context)
 
+def datos_complejo(request):
+    mensaje = 'INDEX'
+    complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
+    complejo_sel = complejos[0]
+
+    context = {'mensaje': mensaje, 'complejos': complejos, 'complejo_sel':complejo_sel, }
+    return render(request, 'datos-complejo.html', context)
+
 def mi_perfil(request):
     mensaje = 'INDEX'
     complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)

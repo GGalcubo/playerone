@@ -36,6 +36,7 @@ urlpatterns = [
     url(r'^form_alta_cancha/', views.form_alta_cancha, name='form_alta_cancha'),
     url(r'^listado_canchas/', views.listado_canchas, name='listado_canchas'),
     url(r'^form_alta_complejo/', views.form_alta_complejo, name='form_alta_complejo'),
+    url(r'^datos_complejo/', views.datos_complejo, name='datos_complejo'),
     url(r'^$', views.index, name='index'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

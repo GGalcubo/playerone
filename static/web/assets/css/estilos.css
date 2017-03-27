@@ -110,3 +110,19 @@ a.boton {
 .dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate {
   display: none;
 }
+
+/* DATOS COMPLEJO */
+
+.md-checkbox input[type=checkbox]:disabled:checked~label>.check,
+.md-checkbox input[type=checkbox]:disabled~label,
+.md-checkbox input[type=checkbox]:disabled~label>.box,
+.md-checkbox input[type=checkbox][disabled]:checked~label>.check,
+.md-checkbox input[type=checkbox][disabled]~label,
+.md-checkbox input[type=checkbox][disabled]~label>.box {
+  opacity: 0.9;
+}
+
+.form-group.form-md-line-input.form-md-floating-label .form-control~label {
+  color: #000;
+  opacity: 0.7;
+}
