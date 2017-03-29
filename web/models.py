@@ -102,6 +102,90 @@ class Complejo(models.Model):
     torneos = models.BooleanField('Torneos', default=False)
     colegios = models.BooleanField('Colegios', default=False)
 
+    def tiene_vestuarios(self):
+           if self.vestuarios:
+               return 'checked'
+           else:
+               return ''
+
+    def tiene_duchas(self):
+           if self.duchas:
+               return 'checked'
+           else:
+               return ''
+
+    def tiene_bar(self):
+           if self.bar:
+               return 'checked'
+           else:
+               return ''
+
+    def tiene_restaurant(self):
+           if self.restaurant:
+               return 'checked'
+           else:
+               return ''
+
+    def tiene_parrilla(self):
+           if self.parrilla:
+               return 'checked'
+           else:
+               return ''
+
+    def tiene_wifi(self):
+           if self.wifi:
+               return 'checked'
+           else:
+               return ''
+
+    def tiene_tv(self):
+           if self.tv:
+               return 'checked'
+           else:
+               return ''
+
+    def tiene_seguridad(self):
+           if self.seguridad:
+               return 'checked'
+           else:
+               return ''
+
+    def tiene_estacionamiento(self):
+           if self.estacionamiento:
+               return 'checked'
+           else:
+               return ''
+
+    def tiene_tarjetas(self):
+           if self.tarjetas:
+               return 'checked'
+           else:
+               return ''
+
+    def tiene_festejos(self):
+           if self.festejos:
+               return 'checked'
+           else:
+               return ''
+
+    def tiene_escuelita(self):
+           if self.escuelita:
+               return 'checked'
+           else:
+               return ''
+
+    def tiene_torneos(self):
+           if self.torneos:
+               return 'checked'
+           else:
+               return ''
+
+    def tiene_colegios(self):
+           if self.colegios:
+               return 'checked'
+           else:
+               return ''
+
     def __str__(self):
         return self.nombre
 
@@ -117,6 +201,18 @@ class Cancha(models.Model):
     complejo = models.ForeignKey(Complejo, null=True, blank=True)
     techada = models.BooleanField('Techada', default=False)
     luz = models.BooleanField('Luz', default=False)
+
+    def es_techada(self):
+       if self.techada:
+           return 'Techada'
+       else:
+           return ' '
+
+    def tiene_luz(self):
+       if self.luz:
+           return 'Luz'
+       else:
+           return ' '
 
     def __str__(self):
         return self.nombre
