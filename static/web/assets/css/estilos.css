@@ -1,0 +1,128 @@
+/* LOGO */
+
+.page-header.navbar .page-logo .logo-default {
+    margin: 0;
+    width: 90px;
+}
+
+@media (min-width: 991px) {
+  .page-header.navbar .page-logo {
+      padding-left: 35px;
+  }
+}
+
+/* DATE PAGINATOR */
+
+#datepaginator {
+  padding: 10px 20px 10px;
+}
+
+.portlet {
+  margin-bottom: 0px;
+
+}
+
+.portlet>.portlet-title {
+  margin-bottom: 0px;
+}
+
+.portlet.light.portlet-fit>.portlet-title {
+  padding: 10px 20px 10px;
+}
+
+.portlet.light .portlet-body {
+  padding: 10px 0px 10px;
+}
+
+
+/* TABLA RESERVAS */
+
+a {
+  color: #fdfdfd;
+}
+
+a:active, a:focus, a:hover {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d2d2d2;
+}
+
+.label-libre {
+  background-color: #659be0;
+}
+
+.label-reservada {
+  background-color: #ed6b75;
+}
+
+.centrado {
+  text-align: center;
+}
+
+.titulo {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+
+/* MODAL */
+
+.modal .modal-header {
+  text-align: center;
+  background-color: #66aa66;
+}
+
+h4#myModalLabel.modal-title {
+  font-weight: bold;
+}
+
+button.close {
+  opacity: 0.5;
+}
+
+.close:focus, .close:hover {
+  opacity: 1;
+}
+
+/* FORMS */
+
+a.edit, a.delete, a.cancel {
+  color: #5c5c5c;
+}
+
+.borde {
+  border-bottom: 1px solid #327ad5;
+  padding-top: 20px;
+  padding-bottom: 8px;
+}
+
+
+/* LISTADO CANCHAS */
+
+a.boton {
+  width: 25px;
+  height: 25px;
+  padding: 1px;
+}
+
+.dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate {
+  display: none;
+}
+
+/* DATOS COMPLEJO */
+
+.md-checkbox input[type=checkbox]:disabled:checked~label>.check,
+.md-checkbox input[type=checkbox]:disabled~label,
+.md-checkbox input[type=checkbox]:disabled~label>.box,
+.md-checkbox input[type=checkbox][disabled]:checked~label>.check,
+.md-checkbox input[type=checkbox][disabled]~label,
+.md-checkbox input[type=checkbox][disabled]~label>.box {
+  opacity: 0.9;
+}
+
+.form-group.form-md-line-input.form-md-floating-label .form-control~label {
+  color: #000;
+  opacity: 0.7;
+}

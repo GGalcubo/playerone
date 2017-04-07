@@ -75,7 +75,7 @@
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <i class=" icon-list font-red"></i>
-                                            <span class="caption-subject font-red sbold uppercase">Agregar Complejo</span>
+                                            <span class="caption-subject font-red sbold uppercase">Datos del Complejo</span>
                                         </div>
                                         <div class="actions">
                                             <a class="btn btn-circle btn-icon-only blue" href="javascript:;">
@@ -97,9 +97,8 @@
                                                     <div class="col-sm-4">
                                                         <div class="form-group form-md-line-input form-md-floating-label has-info">
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control" id="form_control_1">
-                                                                <label for="form_control_1">Nombre*</label>
-                                                                <span class="help-block">Nombre del Complejo</span>
+                                                                <input type="text" class="form-control" id="form_control_1" placeholder="{{ complejo_sel.nombre }}" readonly>
+                                                                <label for="form_control_1">Nombre</label>
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-user"></i>
                                                                 </span>
@@ -109,9 +108,8 @@
                                                     <div class="col-sm-4">
                                                         <div class="form-group form-md-line-input form-md-floating-label has-info">
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control" id="form_control_1">
-                                                                <label for="form_control_1">Dirección*</label>
-                                                                <span class="help-block">Dirección del Complejo</span>
+                                                                <input type="text" class="form-control" id="form_control_1" placeholder="{{ complejo_sel.direccion }}" readonly>
+                                                                <label for="form_control_1">Dirección</label>
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-map-marker"></i>
                                                                 </span>
@@ -121,9 +119,8 @@
                                                     <div class="col-sm-4">
                                                         <div class="form-group form-md-line-input form-md-floating-label has-info">
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control" id="form_control_1">
-                                                                <label for="form_control_1">Teléfono*</label>
-                                                                <span class="help-block">Teléfono del Complejo</span>
+                                                                <input type="text" class="form-control" id="form_control_1" placeholder="{{ complejo_sel.telefono }}" readonly>
+                                                                <label for="form_control_1">Teléfono</label>
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-phone-square"></i>
                                                                 </span>
@@ -135,9 +132,8 @@
                                                     <div class="col-sm-4">
                                                         <div class="form-group form-md-line-input form-md-floating-label has-info">
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <input type="text" class="form-control" id="form_control_1" placeholder="{{ complejo_sel.email }}" readonly>
                                                                 <label for="form_control_1">e-Mail</label>
-                                                                <span class="help-block">Dirección de e-Mail del Complejo</span>
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-envelope"></i>
                                                                 </span>
@@ -147,9 +143,8 @@
                                                     <div class="col-sm-4">
                                                         <div class="form-group form-md-line-input form-md-floating-label has-info">
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <input type="text" class="form-control" id="form_control_1" placeholder="{{ complejo_sel.web }}" readonly>
                                                                 <label for="form_control_1">Web</label>
-                                                                <span class="help-block">Página web del Complejo</span>
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-globe"></i>
                                                                 </span>
@@ -159,9 +154,8 @@
                                                     <div class="col-sm-4">
                                                         <div class="form-group form-md-line-input form-md-floating-label has-info">
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <input type="text" class="form-control" id="form_control_1" placeholder="{{ complejo_sel.facebook }}" readonly>
                                                                 <label for="form_control_1">Facebook</label>
-                                                                <span class="help-block">Página de Facebook del Complejo</span>
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-facebook-square"></i>
                                                                 </span>
@@ -176,35 +170,37 @@
                                                             <div class="col-sm-6">
                                                                 <div class="md-checkbox-list">
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox1_1" class="md-check">
+                                                                        <input type="checkbox" id="checkbox1_1" class="md-check" checked disabled>
                                                                         <label for="checkbox1_1">
-                                                                            <span></span>
                                                                             <span class="check"></span>
-                                                                            <span class="box"></span>Vestuarios</label>
+                                                                            <span class="check"></span>
+                                                                            <span class="box"></span>Vestuarios
+                                                                        </label>
                                                                     </div>
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox1_2" class="md-check">
+                                                                        <input type="checkbox" id="checkbox1_2" class="md-check" checked disabled>
                                                                         <label for="checkbox1_2">
                                                                             <span></span>
                                                                             <span class="check"></span>
-                                                                            <span class="box"></span>Duchas</label>
+                                                                            <span class="box"></span>
+                                                                            Duchas</label>
                                                                     </div>
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox1_3" class="md-check">
+                                                                        <input type="checkbox" id="checkbox1_3" class="md-check" checked disabled>
                                                                         <label for="checkbox1_3">
                                                                             <span></span>
                                                                             <span class="check"></span>
                                                                             <span class="box"></span>Bar</label>
                                                                     </div>
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox1_4" class="md-check">
+                                                                        <input type="checkbox" id="checkbox1_4" class="md-check" disabled>
                                                                         <label for="checkbox1_4">
                                                                             <span></span>
                                                                             <span class="check"></span>
                                                                             <span class="box"></span>Restaurant</label>
                                                                     </div>
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox1_5" class="md-check">
+                                                                        <input type="checkbox" id="checkbox1_5" class="md-check" disabled>
                                                                         <label for="checkbox1_5">
                                                                             <span></span>
                                                                             <span class="check"></span>
@@ -215,35 +211,35 @@
                                                             <div class="col-sm-6">
                                                                 <div class="md-checkbox-list">
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox1_6" class="md-check">
+                                                                        <input type="checkbox" id="checkbox1_6" class="md-check" checked disabled>
                                                                         <label for="checkbox1_6">
                                                                             <span></span>
                                                                             <span class="check"></span>
                                                                             <span class="box"></span>Wifi</label>
                                                                     </div>
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox1_7" class="md-check">
+                                                                        <input type="checkbox" id="checkbox1_7" class="md-check" checked disabled>
                                                                         <label for="checkbox1_7">
                                                                             <span></span>
                                                                             <span class="check"></span>
                                                                             <span class="box"></span>TV</label>
                                                                     </div>
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox1_8" class="md-check">
+                                                                        <input type="checkbox" id="checkbox1_8" class="md-check" checked disabled>
                                                                         <label for="checkbox1_8">
                                                                             <span></span>
                                                                             <span class="check"></span>
                                                                             <span class="box"></span>Seguridad</label>
                                                                     </div>
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox1_9" class="md-check">
+                                                                        <input type="checkbox" id="checkbox1_9" class="md-check" checked disabled>
                                                                         <label for="checkbox1_9">
                                                                             <span></span>
                                                                             <span class="check"></span>
                                                                             <span class="box"></span>Estacionamiento</label>
                                                                     </div>
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox1_10" class="md-check">
+                                                                        <input type="checkbox" id="checkbox1_10" class="md-check" disabled>
                                                                         <label for="checkbox1_10">
                                                                             <span></span>
                                                                             <span class="check"></span>
@@ -259,28 +255,28 @@
                                                             <div class="col-sm-12">
                                                                 <div class="md-checkbox-list">
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox2_1" class="md-check">
+                                                                        <input type="checkbox" id="checkbox2_1" class="md-check" checked disabled>
                                                                         <label for="checkbox2_1">
                                                                             <span></span>
                                                                             <span class="check"></span>
                                                                             <span class="box"></span>Festejos</label>
                                                                     </div>
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox2_2" class="md-check">
+                                                                        <input type="checkbox" id="checkbox2_2" class="md-check" checked disabled>
                                                                         <label for="checkbox2_2">
                                                                             <span></span>
                                                                             <span class="check"></span>
                                                                             <span class="box"></span>Escuelita</label>
                                                                     </div>
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox2_3" class="md-check">
+                                                                        <input type="checkbox" id="checkbox2_3" class="md-check" checked disabled>
                                                                         <label for="checkbox2_3">
                                                                             <span></span>
                                                                             <span class="check"></span>
                                                                             <span class="box"></span>Torneos</label>
                                                                     </div>
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox2_4" class="md-check">
+                                                                        <input type="checkbox" id="checkbox2_4" class="md-check" checked disabled>
                                                                         <label for="checkbox2_4">
                                                                             <span></span>
                                                                             <span class="check"></span>
@@ -289,14 +285,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-actions centrado">
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <a href="javascript:;" class="btn green">Guardar</a>
-                                                        <a href="javascript:;" class="btn red">Cancelar</a>
                                                     </div>
                                                 </div>
                                             </div>

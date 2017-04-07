@@ -173,12 +173,43 @@ def form_alta_cancha(request):
     context = {'mensaje': mensaje, 'complejos': complejos, }
     return render(request, 'form-alta-cancha.html', context)
 
+def listado_canchas(request):
+    mensaje = 'INDEX'
+    complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
+    complejo_sel = complejos[0]
+    canchas_complejo = complejo_sel.cancha_set.all()
+
+    context = {'mensaje': mensaje, 'complejos': complejos,'canchas_complejo':canchas_complejo, 'complejo_sel':complejo_sel, }
+    return render(request, 'listado-canchas.html', context)
+
 def form_alta_complejo(request):
     mensaje = 'INDEX'
     complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
 
     context = {'mensaje': mensaje, 'complejos': complejos, }
     return render(request, 'form-alta-complejo.html', context)
+
+def datos_complejo(request):
+    mensaje = 'INDEX'
+    complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
+    complejo_sel = complejos[0]
+
+    context = {'mensaje': mensaje, 'complejos': complejos, 'complejo_sel':complejo_sel, }
+    return render(request, 'datos-complejo.html', context)
+
+def mi_perfil(request):
+    mensaje = 'INDEX'
+    complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
+
+    context = {'mensaje': mensaje, 'complejos': complejos, }
+    return render(request, 'mi-perfil.html', context)
+
+def mi_perfil_ayuda(request):
+    mensaje = 'INDEX'
+    complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
+
+    context = {'mensaje': mensaje, 'complejos': complejos, }
+    return render(request, 'mi-perfil-ayuda.html', context)
     
 @register.filter
 def get_item(dictionary, key):
