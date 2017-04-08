@@ -22,24 +22,19 @@
         <link href="{% static 'web/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css' %}" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <!-- <link href="{% static 'web/assets/global/plugins/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css" />
-        <link href="{% static 'web/assets/global/plugins/select2/css/select2-bootstrap.min.css' %}" rel="stylesheet" type="text/css" /> -->
+        <link href="{% static 'web/assets/global/plugins/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'web/assets/global/plugins/select2/css/select2-bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="{% static 'web/assets/global/css/components-rounded.min.css' %}" rel="stylesheet" id="style_components" type="text/css" />
         <link href="{% static 'web/assets/global/css/plugins.min.css' %}" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN PAGE LEVEL STYLES -->
-        <link href="{% static 'web/assets/css/login-4.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'web/css/login-4.css' %}" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'web/favico/apple-touch-icon.png' %}">
-        <link rel="icon" type="image/png" href="{% static 'web/favico/favicon-32x32.png' %}" sizes="32x32">
-        <link rel="icon" type="image/png" href="{% static 'web/favico/favicon-16x16.png' %}" sizes="16x16">
-        <link rel="manifest" href="{% static 'web/favico/manifest.json' %}">
-        <link rel="mask-icon" href="{% static 'web/favico/safari-pinned-tab.svg' %}" color="#38ab36">
-        <meta name="theme-color" content="#ffffff"> 
+        <link rel="shortcut icon" href="favicon.ico" /> 
 
         <style type="text/css">
             #home {
@@ -50,11 +45,6 @@
                 text-align: center;
                 width: 100%;
             }
-            
-            .logoP1 {width: 120px;}
-            
-            .login .logo {margin: 30px auto 20px auto;}
-
         </style>
     </head>
     <!-- END HEAD -->
@@ -63,7 +53,7 @@
         <!-- BEGIN LOGO -->
         <div class="logo">
             <a href="index.html">
-                <img src="{% static 'web/assets/img/logoplayerone.png' %}" alt="logo Player One" class="logoP1"/> </a>
+                <img src="{% static 'web/img/logo-big.png' %}" alt="" /> </a>
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->
@@ -116,8 +106,8 @@
                 </div -->
                 <div class="forget-password">
                     <h4>Olvidaste tu password ?</h4>
-                    <p> No te preocupes, click
-                        <a style="color: #1aeaa7;" href="javascript:;" id="forget-password"> AQUI </a> para resetear tu password. </p>
+                    <p> no te preocupes, click
+                        <a style="color: #1aeaa7;" href="javascript:;" id="forget-password"> AQUI </a> resetear tu password. </p>
                 </div>
                 <div class="create-account">
                     <p> Todavia no tenes tu cuenta ?&nbsp;
@@ -212,33 +202,33 @@
         </div>
         <!-- END LOGIN -->
         <!-- BEGIN COPYRIGHT -->
-        <div style="background: url(/static/web/assets/img/bg-opacity.png) repeat; width: 360px;
+        <div style="background: url(/static/web/img/bg-opacity.png) repeat; width: 360px;
     margin: 0 auto;"  class="copyright"> 2017 &copy; Galcubo - Player One. </div>
         <!-- END COPYRIGHT -->
         <!--[if lt IE 9]>
-<script src="{% static 'web/assets/global/plugins/respond.min.js"></script>
-<script src="{% static 'web/assets/global/plugins/excanvas.min.js"></script> 
-<script src="{% static 'web/assets/global/plugins/ie8.fix.min.js"></script> 
+<script src="{% static 'web/global/plugins/respond.min.js"></script>
+<script src="{% static 'web/global/plugins/excanvas.min.js"></script> 
+<script src="{% static 'web/global/plugins/ie8.fix.min.js"></script> 
 <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
         <script src="{% static 'web/assets/global/plugins/jquery.min.js' %}" type="text/javascript"></script>
         <script src="{% static 'web/assets/global/plugins/bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
-        <!-- <script src="{% static 'web/assets/global/plugins/js.cookie.min.js' %}" type="text/javascript"></script> 
+        <script src="{% static 'web/assets/global/plugins/js.cookie.min.js' %}" type="text/javascript"></script>
         <script src="{% static 'web/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'web/assets/global/plugins/jquery.blockui.min.js' %}" type="text/javascript"></script>-->
+        <script src="{% static 'web/assets/global/plugins/jquery.blockui.min.js' %}" type="text/javascript"></script>
         <script src="{% static 'web/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js' %}" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <script src="{% static 'web/assets/js/jquery.validate.js' %}" type="text/javascript"></script>
-        <script src="{% static 'web/assets/js/additional-methods.js' %}" type="text/javascript"></script>
-        <!-- <script src="{% static 'web/assets/global/plugins/select2/js/select2.full.min.js' %}" type="text/javascript"></script> -->
+        <script src="{% static 'web/js/jquery.validate.js' %}" type="text/javascript"></script>
+        <script src="{% static 'web/js/additional-methods.js' %}" type="text/javascript"></script>
+        <script src="{% static 'web/assets/global/plugins/select2/js/select2.full.min.js' %}" type="text/javascript"></script>
         <script src="{% static 'web/assets/global/plugins/backstretch/jquery.backstretch.min.js' %}" type="text/javascript"></script>
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="{% static 'web/assets/global/scripts/app.min.js' %}" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="{% static 'web/assets/js/login-4.js' %}" type="text/javascript"></script>
+        <script src="{% static 'web/js/login-4.js' %}" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <!-- END THEME LAYOUT SCRIPTS -->
