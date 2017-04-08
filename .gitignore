@@ -3,3 +3,5 @@ playerone/settings.py
 web/admin.pyc
 playerone/settings.py
 *.pyc
+*.pyc
+playerone/settings.py
