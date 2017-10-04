@@ -5,3 +5,5 @@ playerone/settings.py
 *.pyc
 *.pyc
 playerone/settings.py
+*.pyc
+playerone/settings.py

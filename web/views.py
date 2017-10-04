@@ -165,7 +165,7 @@ def dashboard(request):
     context = {'fecha': fecha,'mensaje': mensaje, 'complejos': complejos, 'canchas_complejo':canchas_complejo, 'complejo_sel':complejo_sel, 'tabla':tabla, 'lista_horarios_text': lista_horarios_text, 'ancho':ancho}
     return render(request, 'dashboard.html', context)
     
-
+@login_required
 def form_alta_cancha(request):
     mensaje = 'INDEX'
     complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
@@ -173,6 +173,7 @@ def form_alta_cancha(request):
     context = {'mensaje': mensaje, 'complejos': complejos, }
     return render(request, 'form-alta-cancha.html', context)
 
+@login_required
 def listado_canchas(request):
     mensaje = 'INDEX'
     complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
@@ -182,6 +183,7 @@ def listado_canchas(request):
     context = {'mensaje': mensaje, 'complejos': complejos,'canchas_complejo':canchas_complejo, 'complejo_sel':complejo_sel, }
     return render(request, 'listado-canchas.html', context)
 
+@login_required
 def form_alta_complejo(request):
     mensaje = 'INDEX'
     complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
@@ -189,6 +191,7 @@ def form_alta_complejo(request):
     context = {'mensaje': mensaje, 'complejos': complejos, }
     return render(request, 'form-alta-complejo.html', context)
 
+@login_required
 def datos_complejo(request):
     mensaje = 'INDEX'
     complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
@@ -197,6 +200,7 @@ def datos_complejo(request):
     context = {'mensaje': mensaje, 'complejos': complejos, 'complejo_sel':complejo_sel, }
     return render(request, 'datos-complejo.html', context)
 
+@login_required
 def mi_perfil(request):
     mensaje = 'INDEX'
     complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
@@ -204,6 +208,7 @@ def mi_perfil(request):
     context = {'mensaje': mensaje, 'complejos': complejos, }
     return render(request, 'mi-perfil.html', context)
 
+@login_required
 def mi_perfil_ayuda(request):
     mensaje = 'INDEX'
     complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
