@@ -174,6 +174,106 @@ def form_alta_cancha(request):
     return render(request, 'form-alta-cancha.html', context)
 
 @login_required
+def alta_reserva(request):
+    mensaje = ''
+    complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
+    a_list = {}
+
+    if request.method == 'GET':
+        pass
+    elif request.method == 'POST':
+        try:
+
+            # cancha_select
+            # horarios_select
+            # horarios_hasta_select
+            # nombre
+            # telefono
+            # adelanto
+
+            cancha_select= request.POST.get('cancha_select')
+            horarios_select= request.POST.get('horarios_select')
+            horarios_hasta_select= request.POST.get('horarios_hasta_select')
+            nombre= request.POST.get('nombre')
+            telefono= request.POST.get('telefono')
+            sena= request.POST.get('sena')
+            user_id= request.POST.get('user_id')
+
+            
+            t = datetime.datetime(2012, 2, 23, 0, 0)
+            t.strftime('%m/%d/%Y')
+            print horarios_hasta_select
+
+
+            reserva = Reserva()
+            reserva.nombre = nombre
+            reserva.telefono = telefono
+            reserva.usuario = request.user.usuario
+            reserva.cancha = cancha_select
+            reserva.tipo_reserva = None
+            reserva.fecha_inicio = horarios_select
+            reserva.fecha_fin = horarios_hasta_select
+            reserva.precio = ''
+            reserva.sena = sena
+            reserva.pago = ''
+            reserva.evento = False
+            reserva.actualizado_por = request.user.usuario
+            reserva.fecha_cracion = ''
+            reserva.fecha_atualizacion = ''
+            reserva.save()
+
+
+        #     users = User.objects.filter(email=email)
+            
+        #     if len(users) > 0:
+        #         mensaje = "Ya existe el email con el que desea registrarse."
+        #     else:
+        #         user = User.objects.create_user(email, email, password)
+        #         user.first_name = nombre
+        #         user.is_staff = False
+        #         user.save()
+
+        #         usuario = Usuario()
+        #         usuario.user = user
+        #         usuario.tipo_usuario = TipoUsuario.objects.get(nombre = 'Administrador')
+        #         usuario.save()
+                
+        #         telefono = Telefono()
+        #         telefono.telefono = telefono_n
+        #         telefono.tipoTelefono = TipoTelefono.objects.get(nombre = 'Particular')
+        #         telefono.comentario = 'Telefono ingresado en el proceso de registro.'
+        #         telefono.save()
+                            
+        #         teleUsuario  = TelefonosUsuario()
+        #         teleUsuario.usuario = usuario
+        #         teleUsuario.telefono = telefono
+        #         teleUsuario.save()
+
+        #         complejo = Complejo()
+        #         complejo.nombre = complejo_n
+        #         complejo.direccion = 'Direccion complejo'
+        #         complejo.save()
+
+        #         usu_compl = UsuariosComplejos()
+        #         usu_compl.complejo = complejo
+        #         usu_compl.usuario = usuario
+        #         usu_compl.save()
+
+            
+            #render_to_response("foo.html", RequestContext(request, {}))
+            return redirect(reverse('dashboard'))
+
+        except Exception as e:
+            mensaje = str(e)
+            
+    # context = {'mensaje_nuevo': mensaje,}
+    # return render(request, 'ingresar    .html', context)        
+
+    print mensaje
+    context = {'mensaje': mensaje, 'complejos': complejos}
+    return render(request, 'dashboard.html', context)
+
+@login_required
 def listado_canchas(request):
     mensaje = 'INDEX'
     complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
