@@ -55,7 +55,7 @@ ROOT_URLCONF = 'playerone.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Jere/Desktop/paginas/playerone/templates'],      
+        'DIRS': ['C:/paginas/playerone/templates'],      
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'playerone',
         'USER': 'root',
-        'PASSWORD': 'Basico1234',
+        'PASSWORD': '',
         'HOST': '',
         'PORT': '3306',
     }

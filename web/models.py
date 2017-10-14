@@ -221,6 +221,7 @@ class Cancha(models.Model):
         verbose_name_plural = "Canchas" 
 
 class Reserva(models.Model):
+    id_res = models.IntegerField('id_res', default=1)
     nombre = models.CharField('Nombre', max_length=30)
     telefono = models.CharField('Telefono', max_length=15)
     usuario = models.ForeignKey(Usuario, null=True, blank=True)
