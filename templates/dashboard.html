@@ -45,7 +45,7 @@
                     
                 </div>
                 <div class="portlet-body">
-                  <h4 class="centrado titulo">Complejo: {{ complejo_sel.nombre }} - Día: {{ fecha }}</h4>
+                  <!-- <h4 class="centrado titulo">Complejo: {{ complejo_sel.nombre }} - Día: {{ fecha }}</h4> -->
                     <div class="table-scrollable">
                         <table id="tabla_reservas" class="table table-bordered table-hover">
                             <thead>
@@ -155,8 +155,6 @@
     <!-- END CONTAINER -->
     {% include "pie.html" %}
     <script>
-    $(document).ready(function() {
-    });
     function abrirHorario(horario, id, canchaid){
     $('#cancha_select').val(canchaid);
     $('#cancha_select').prop('disabled',true);
