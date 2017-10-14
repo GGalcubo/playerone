@@ -81,14 +81,11 @@
                         <h4 class="modal-title" id="myModalLabel">Reserva</h4>
                       </div>
                       <div class="modal-body">
-<<<<<<< HEAD
                         <form class="form-horizontal" id="form_alta_reserva" action="/alta_reserva/" method="post">
                           {% csrf_token %}
                           <input type="hidden" name="user_id" value="{{ user.id }}">
                           <input type="hidden" name="fecha" id="fecha_alta" value="{{ fecha }}">
-=======
                         <form class="form-horizontal">
->>>>>>> 34b7bfe10a344e3bb0c73ad1b6382e61b3ac6959
                           <fieldset>
                             <div class="form-group">
                               <label class="col-sm-2 control-label" for="">Fecha</label>
@@ -97,7 +94,7 @@
                               </div>
                               <label class="col-sm-2 control-label" for="">Cancha</label>
                               <div class="col-sm-4">
-                                <select id="cancha_select" class="form-control">
+                                <select id="cancha_select" name="cancha_select" class="form-control">
                                   {% for c in canchas_complejo %}
                                     <option value="{{ c.id }}">{{ c.nombre }}</option>
                                   {% endfor %}
@@ -107,7 +104,7 @@
                             <div class="form-group">
                               <label class="col-sm-2 control-label" for="">Desde</label>
                               <div class="col-sm-4">
-                                <select id="horarios_select" class="form-control">
+                                <select id="horarios_select" name="horarios_select" class="form-control">
                                   {% for i in lista_horarios_text %}
                                     <option>{{ i }}</option>
                                   {% endfor %}
@@ -115,7 +112,7 @@
                               </div>
                               <label class="col-sm-2 control-label" for="">Hasta</label>
                               <div class="col-sm-4">
-                                <select id="horarios_hasta_select" class="form-control">
+                                <select id="horarios_hasta_select" name="horarios_hasta_select" class="form-control">
                                   {% for i in lista_horarios_text %}
                                     <option>{{ i }}</option>
                                   {% endfor %}
@@ -126,29 +123,30 @@
                             <div class="form-group">
                               <label class="col-sm-2 control-label" for="">Nombre</label>
                               <div class="col-sm-4">
-                                <input id="" name="" type="text" placeholder="Jorge" class="form-control" required="">
+                                <input id="" name="nombre" type="text" placeholder="Jorge" class="form-control" required="">
                               </div>
                               <label class="col-sm-2 control-label" for="">Teléfono</label>
                               <div class="col-sm-4">
                                 <div class="input-group">
                                   <!-- span class="input-group-addon">+54 9</span -->
-                                  <input id="" name="" class="form-control" placeholder="1136561212" type="text" required="">
+                                  <input id="" name="telefono" class="form-control" placeholder="1136561212" type="text" required="">
                                 </div>
                               </div>
                             </div>
                             <div class="form-group">
                               <label class="col-sm-2 control-label" for="">Seña</label>
                               <div class="col-sm-4">
-                                <input id="" name="" type="text" placeholder="$200" class="form-control" required="">
+                                <input id="" name="sena" type="text" placeholder="$200" class="form-control" required="">
                               </div>
                             </div>
                           </fieldset>
+                          <div class="modal-footer">
+                            <input type="submit" class="btn btn-success" value="Reservar">
+                            <button type="button" class="btn btn-danger">Eliminar Reserva</button>
+                          </div>
                         </form>
                       </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-success">Reservar</button>
-                        <button type="button" class="btn btn-danger">Eliminar Reserva</button>
-                      </div>
+                      
                     </div>
                     <!-- /.modal-content -->
                   </div>
@@ -164,13 +162,13 @@
     <script>
     function abrirHorario(horario, id, canchaid){
     $('#cancha_select').val(canchaid);
-    $('#cancha_select').prop('disabled',true);
+    //$('#cancha_select').prop('disabled',true);
     
     var fecha = $('#fecha').val();
     $('#fecha_modal').val(fecha);
-    $('#fecha_modal').prop('disabled',true);
+    //$('#fecha_modal').prop('disabled',true);
     $('#horarios_select option:contains('+horario+')').prop('selected',true);
-    $('#horarios_select').prop('disabled',true);
+    //$('#horarios_select').prop('disabled',true);
     $('#horarios_hasta_select option:contains('+horario+')').prop('selected',true);
     $('#modalHorario').modal('show');
     }

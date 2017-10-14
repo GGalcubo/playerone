@@ -200,16 +200,16 @@ def alta_reserva(request):
             user_id= request.POST.get('user_id')
 
             
-            t = datetime.datetime(2012, 2, 23, 0, 0)
-            t.strftime('%m/%d/%Y')
-            print horarios_hasta_select
+            print fecha
+            print cancha_select
+            print horarios_select
 
 
             reserva = Reserva()
             reserva.nombre = nombre
             reserva.telefono = telefono
             reserva.usuario = request.user.usuario
-            reserva.cancha = cancha_select
+            reserva.cancha = Cancha.objects.get(id = cancha_select)
             reserva.tipo_reserva = None
             reserva.fecha_inicio = fecha.split("/")[2] + fecha.split("/")[1] + fecha.split("/")[0] + horarios_select.replace(':','')
             reserva.fecha_fin = fecha.split("/")[2] + fecha.split("/")[1] + fecha.split("/")[0] + horarios_hasta_select.replace(':','')
