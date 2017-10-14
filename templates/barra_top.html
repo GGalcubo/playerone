@@ -49,62 +49,9 @@
                 <!-- END PAGE ACTIONS -->
                 <!-- BEGIN PAGE TOP -->
                 <div class="page-top">
-
-                    <div class="top-menu pull-left">
-
-                        <ul class="nav navbar-nav ">
-                            <li class="dropdown dropdown-user">
-                                <a href="#!" class="dropdown-toggle">
-                                    <!-- <img alt="" class="img-circle" src="{% static 'web/layouts/layout2/img/avatar3_small.jpg' %}"> -->
-                                    <span class="username username-hide-on-mobile">Complejo | {{ complejo_sel.nombre }} </span>
-                                    <!-- <i class="fa fa-angle-down"></i> -->
-                                </a>
-                                
-                                <!-- <ul class="dropdown-menu dropdown-menu-default">
-                                    
-                                {% for c in complejos %}
-                                    <li class="nav-item ">
-                                        <a href="/datos_complejo/"><i class="icon-direction"></i> {{ c.nombre }}</a>
-                                    </li>
-                                {% endfor %}
-                                    <li class="nav-item ">
-                                        <a href="/form_alta_complejo/"><i class="icon-note"></i> Agregar Complejo</a>
-                                    </li>       
-                                </ul> -->
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- END TOP NAVIGATION MENU -->
-
                     
                     <!-- BEGIN TOP NAVIGATION MENU -->
                     <div class="top-menu">
-
-                        <ul class="nav navbar-nav ">
-                            <li class="dropdown dropdown-user">
-                                <!-- <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <img alt="" class="img-circle" src="{% static 'web/layouts/layout2/img/avatar3_small.jpg' %}">
-                                    <span class="username username-hide-on-mobile">Complejo: {{ complejo_sel.nombre }} </span>
-                                    <i class="fa fa-angle-down"></i>
-                                </a> -->
-                                
-                                <ul class="dropdown-menu dropdown-menu-default">
-                                    
-                                {% for c in complejos %}
-                                    <li class="nav-item ">
-                                        <a href="/datos_complejo/"><i class="icon-direction"></i> {{ c.nombre }}</a>
-                                    </li>
-                                {% endfor %}
-                                    <li class="nav-item ">
-                                        <a href="/form_alta_complejo/"><i class="icon-note"></i> Agregar Complejo</a>
-                                    </li>       
-                                </ul>
-
-
-                            </li>
-                        </ul>
-
-
                         <ul class="nav navbar-nav pull-right">
                             <!-- BEGIN NOTIFICATION DROPDOWN -->
                             <!-- DOC: Apply "dropdown-dark" class below "dropdown-extended" to change the dropdown styte -->
@@ -147,16 +94,17 @@
                                     </li> -->
                                     <li>
                                         <a href="/salir/">
-                                            <i class="icon-logout"></i> Salir </a>
+                                            <i class="icon-key"></i> Salir </a>
                                     </li>
                                 </ul>
                             </li>
                             <!-- END USER LOGIN DROPDOWN -->
                             <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                            <li class="nav-item ">
-                                        <a href="/salir/"><i class="icon-logout"></i></a>
-                                    </li>
+                            <li class="dropdown dropdown-extended quick-sidebar-toggler">
+                                <span class="sr-only">Toggle Quick Sidebar</span>
+                                <i class="icon-logout"></i>
+                            </li>
                             <!-- END QUICK SIDEBAR TOGGLER -->
                         </ul>
                     </div>

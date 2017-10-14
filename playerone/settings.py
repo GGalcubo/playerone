@@ -55,7 +55,7 @@ ROOT_URLCONF = 'playerone.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Lucio/Documents/GitHub/playerone/templates'],
+        'DIRS': ['C:/Users/Jere/Desktop/paginas/playerone/templates'],      
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'playerone',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'Basico1234',
         'HOST': '',
         'PORT': '3306',
     }
@@ -136,11 +136,10 @@ LOGIN_URL = '/ingresar/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-MEDIA_ROOT = '/static/media'
-MEDIA_URL = '/static/media/'
+MEDIA_ROOT = '/home/galcubo/webapps/hairdresser_static/media'
+MEDIA_URL = 'http://hairdresser.galcubo.webfactional.com/static/media/'
 
 STATIC_ROOT = ''
-
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = ( os.path.join('static'), )
