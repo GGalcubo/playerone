@@ -85,6 +85,7 @@
                         <form class="form-horizontal" id="form_alta_reserva" action="/alta_reserva/" method="post">
                           {% csrf_token %}
                           <input type="hidden" name="user_id" value="{{ user.id }}">
+                          <input type="hidden" name="fecha" id="fecha_alta" value="{{ fecha }}">
                           <fieldset>
                             <div class="form-group">
                               <label class="col-sm-2 control-label" for="">Fecha</label>

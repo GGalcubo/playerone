@@ -8,3 +8,5 @@ playerone/settings.py
 *.pyc
 playerone/settings.py
 *.pyc
+/web/*.pyc
+/playerone/settings.py
