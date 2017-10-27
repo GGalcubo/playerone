@@ -51,11 +51,11 @@ a:hover {
 }
 
 .label-libre {
-  background-color: rgba(101, 155, 224, 0.5);
+  background-color: rgba(101, 155, 224, 0.75);
 }
 
 .label-reservada {
-  background-color:rgba(237, 107, 117, 0.5);
+  background-color:rgba(237, 107, 117, 0.75);
 }
 
 .label.label-sm.label-libre {
@@ -145,10 +145,16 @@ a.boton {
 
 .page-header.navbar .top-menu .navbar-nav>li.dropdown.open .dropdown-toggle {
     background-color: transparent;
+}
+
+.portlet.light.portlet-fit {
+    background-color: rgba(255, 255, 255, 0.35);
+}
 
 
 @media (max-width: 767px) {
 .page-header.navbar .top-menu.pull-left .navbar-nav>li.dropdown .dropdown-toggle:hover {
     background-color: transparent;
+  }
 }
 
