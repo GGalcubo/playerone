@@ -190,7 +190,7 @@ def alta_reserva(request):
             # nombre
             # telefono
             # adelanto
-
+            fecha = request.POST.get('fecha')
             cancha_select= request.POST.get('cancha_select')
             horarios_select= request.POST.get('horarios_select')
             horarios_hasta_select= request.POST.get('horarios_hasta_select')
@@ -200,19 +200,21 @@ def alta_reserva(request):
             user_id= request.POST.get('user_id')
 
             
-            t = datetime.datetime(2012, 2, 23, 0, 0)
-            t.strftime('%m/%d/%Y')
-            print horarios_hasta_select
+            print fecha
+            print cancha_select
+            print horarios_select
+
+            lista_horarios = ['1000', '1030', '1100', '1130', '1200', '1230', '1300', '1330', '1400', '1430', '1500', '1530', '1600', '1630', '1700', '1730', '1800', '1830', '1900', '1930', '2000', '2030', '2100', '2130', '2200', '2230', '2300', '2330', '0000', '0030']
 
 
             reserva = Reserva()
             reserva.nombre = nombre
             reserva.telefono = telefono
             reserva.usuario = request.user.usuario
-            reserva.cancha = cancha_select
+            reserva.cancha = Cancha.objects.get(id = cancha_select)
             reserva.tipo_reserva = None
-            reserva.fecha_inicio = horarios_select
-            reserva.fecha_fin = horarios_hasta_select
+            reserva.fecha_inicio = fecha.split("/")[2] + fecha.split("/")[1] + fecha.split("/")[0] + horarios_select.replace(':','')
+            reserva.fecha_fin = fecha.split("/")[2] + fecha.split("/")[1] + fecha.split("/")[0] + horarios_hasta_select.replace(':','')
             reserva.precio = ''
             reserva.sena = sena
             reserva.pago = ''

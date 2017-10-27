@@ -7,4 +7,10 @@ playerone/settings.py
 playerone/settings.py
 *.pyc
 playerone/settings.py
+<<<<<<< HEAD
+*.pyc
+/web/*.pyc
+/playerone/settings.py
+=======
 playerone/settings.py*.pyc
+>>>>>>> 34b7bfe10a344e3bb0c73ad1b6382e61b3ac6959
