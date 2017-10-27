@@ -169,9 +169,8 @@ def dashboard(request):
 def form_alta_cancha(request):
     mensaje = 'INDEX'
     complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
-    complejo_sel = complejos[0]
 
-    context = {'mensaje': mensaje, 'complejos': complejos, 'complejo_sel':complejo_sel, }
+    context = {'mensaje': mensaje, 'complejos': complejos, }
     return render(request, 'form-alta-cancha.html', context)
 
 @login_required
@@ -185,87 +184,64 @@ def alta_reserva(request):
     elif request.method == 'POST':
         try:
 
-            # cancha_select
-            # horarios_select
-            # horarios_hasta_select
-            # nombre
-            # telefono
-            # adelanto
             fecha = request.POST.get('fecha')
             cancha_select= request.POST.get('cancha_select')
-            horarios_select= request.POST.get('horarios_select')
+            horarios_desde_select= request.POST.get('horarios_desde_select')
             horarios_hasta_select= request.POST.get('horarios_hasta_select')
             nombre= request.POST.get('nombre')
             telefono= request.POST.get('telefono')
             sena= request.POST.get('sena')
             user_id= request.POST.get('user_id')
 
-            
-            print fecha
-            print cancha_select
-            print horarios_select
-
             lista_horarios = ['1000', '1030', '1100', '1130', '1200', '1230', '1300', '1330', '1400', '1430', '1500', '1530', '1600', '1630', '1700', '1730', '1800', '1830', '1900', '1930', '2000', '2030', '2100', '2130', '2200', '2230', '2300', '2330', '0000', '0030']
 
+            cant_reserva = 0
+            cargado = False
+            for item in lista_horarios:
+                if item == horarios_hasta_select.replace(":",""):
+                    cargado = False
+                if item == horarios_desde_select.replace(":",""):
+                    cargado = True
+                if cargado == True:
+                    reserva = Reserva()
+                    reserva.nombre = nombre
+                    reserva.telefono = telefono
+                    reserva.usuario = request.user.usuario
+                    reserva.cancha = Cancha.objects.get(id = cancha_select)
+                    reserva.tipo_reserva = None
+                    reserva.fecha_inicio = fecha.split("/")[2] + fecha.split("/")[1] + fecha.split("/")[0] + item
+                    reserva.fecha_fin = fecha.split("/")[2] + fecha.split("/")[1] + fecha.split("/")[0] + lista_horarios[cant_reserva+1]
+                    reserva.precio = ''
+                    reserva.sena = sena
+                    reserva.pago = ''
+                    reserva.evento = False
+                    reserva.actualizado_por = request.user.usuario
+                    reserva.fecha_cracion = ''
+                    reserva.fecha_atualizacion = ''
+                    reserva.save()
+                cant_reserva = cant_reserva + 1
+            print "cant_reserva: " + str(cant_reserva)
 
-            reserva = Reserva()
-            reserva.nombre = nombre
-            reserva.telefono = telefono
-            reserva.usuario = request.user.usuario
-            reserva.cancha = Cancha.objects.get(id = cancha_select)
-            reserva.tipo_reserva = None
-            reserva.fecha_inicio = fecha.split("/")[2] + fecha.split("/")[1] + fecha.split("/")[0] + horarios_select.replace(':','')
-            reserva.fecha_fin = fecha.split("/")[2] + fecha.split("/")[1] + fecha.split("/")[0] + horarios_hasta_select.replace(':','')
-            reserva.precio = ''
-            reserva.sena = sena
-            reserva.pago = ''
-            reserva.evento = False
-            reserva.actualizado_por = request.user.usuario
-            reserva.fecha_cracion = ''
-            reserva.fecha_atualizacion = ''
-            reserva.save()
-
-
-        #     users = User.objects.filter(email=email)
-            
-        #     if len(users) > 0:
-        #         mensaje = "Ya existe el email con el que desea registrarse."
-        #     else:
-        #         user = User.objects.create_user(email, email, password)
-        #         user.first_name = nombre
-        #         user.is_staff = False
-        #         user.save()
-
-        #         usuario = Usuario()
-        #         usuario.user = user
-        #         usuario.tipo_usuario = TipoUsuario.objects.get(nombre = 'Administrador')
-        #         usuario.save()
-                
-        #         telefono = Telefono()
-        #         telefono.telefono = telefono_n
-        #         telefono.tipoTelefono = TipoTelefono.objects.get(nombre = 'Particular')
-        #         telefono.comentario = 'Telefono ingresado en el proceso de registro.'
-        #         telefono.save()
-                            
-        #         teleUsuario  = TelefonosUsuario()
-        #         teleUsuario.usuario = usuario
-        #         teleUsuario.telefono = telefono
-        #         teleUsuario.save()
-
-        #         complejo = Complejo()
-        #         complejo.nombre = complejo_n
-        #         complejo.direccion = 'Direccion complejo'
-        #         complejo.save()
-
-        #         usu_compl = UsuariosComplejos()
-        #         usu_compl.complejo = complejo
-        #         usu_compl.usuario = usuario
-        #         usu_compl.save()
-
-            
-            #render_to_response("foo.html", RequestContext(request, {}))
+            cont_while = 0
+            while cont_while != cant_reserva:
+                reserva = Reserva()
+                reserva.nombre = nombre
+                reserva.telefono = telefono
+                reserva.usuario = request.user.usuario
+                reserva.cancha = Cancha.objects.get(id = cancha_select)
+                reserva.tipo_reserva = None
+                reserva.fecha_inicio = fecha.split("/")[2] + fecha.split("/")[1] + fecha.split("/")[0] + horarios_desde_select.replace(':','')
+                reserva.fecha_fin = fecha.split("/")[2] + fecha.split("/")[1] + fecha.split("/")[0] + horarios_hasta_select.replace(':','')
+                reserva.precio = ''
+                reserva.sena = sena
+                reserva.pago = ''
+                reserva.evento = False
+                reserva.actualizado_por = request.user.usuario
+                reserva.fecha_cracion = ''
+                reserva.fecha_atualizacion = ''
+                #reserva.save()
+                cont_while = cont_while + 1
             return redirect(reverse('dashboard'))
-
         except Exception as e:
             mensaje = str(e)
             

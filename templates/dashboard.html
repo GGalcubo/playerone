@@ -25,7 +25,7 @@
           <div id="page-wrapper">
             <input type="hidden" name="fecha" id="fecha" value="{{ fecha }}">
             <!-- BEGIN BORDERED TABLE PORTLET-->
-            <div class="portlet light portlet-fit">
+            <div class="portlet light portlet-fit ">
                 <div class="portlet-title">
                   
                   <!-- BEGIN PORTLET DATE PAGINATOR -->
@@ -104,7 +104,7 @@
                             <div class="form-group">
                               <label class="col-sm-2 control-label" for="">Desde</label>
                               <div class="col-sm-4">
-                                <select id="horarios_select" name="horarios_select" class="form-control">
+                                <select id="horarios_desde_select" name="horarios_desde_select" class="form-control">
                                   {% for i in lista_horarios_text %}
                                     <option>{{ i }}</option>
                                   {% endfor %}
@@ -167,8 +167,8 @@
     var fecha = $('#fecha').val();
     $('#fecha_modal').val(fecha);
     //$('#fecha_modal').prop('disabled',true);
-    $('#horarios_select option:contains('+horario+')').prop('selected',true);
-    //$('#horarios_select').prop('disabled',true);
+    $('#horarios_desde_select option:contains('+horario+')').prop('selected',true);
+    //$('#horarios_desde_select').prop('disabled',true);
     $('#horarios_hasta_select option:contains('+horario+')').prop('selected',true);
     $('#modalHorario').modal('show');
     }
