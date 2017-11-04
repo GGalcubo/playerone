@@ -195,6 +195,13 @@ def alta_reserva(request):
 
             lista_horarios = ['1000', '1030', '1100', '1130', '1200', '1230', '1300', '1330', '1400', '1430', '1500', '1530', '1600', '1630', '1700', '1730', '1800', '1830', '1900', '1930', '2000', '2030', '2100', '2130', '2200', '2230', '2300', '2330', '0000', '0030']
 
+            res = Reserva.objects.order_by('-id_res').first()
+            if res == None:
+                id_res = 0
+            else:
+                id_res = res.id_res
+            id_res = id_res + 1
+
             cant_reserva = 0
             cargado = False
             for item in lista_horarios:
@@ -218,6 +225,7 @@ def alta_reserva(request):
                     reserva.actualizado_por = request.user.usuario
                     reserva.fecha_cracion = ''
                     reserva.fecha_atualizacion = ''
+                    reserva.id_res = id_res
                     reserva.save()
                 cant_reserva = cant_reserva + 1
             print "cant_reserva: " + str(cant_reserva)
