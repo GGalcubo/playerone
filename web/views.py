@@ -169,8 +169,10 @@ def dashboard(request):
 def form_alta_cancha(request):
     mensaje = 'INDEX'
     complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
+    complejo_sel = complejos[0]
 
-    context = {'mensaje': mensaje, 'complejos': complejos, }
+
+    context = {'mensaje': mensaje, 'complejos': complejos, 'complejo_sel':complejo_sel, }
     return render(request, 'form-alta-cancha.html', context)
 
 @login_required
