@@ -154,7 +154,7 @@ def dashboard(request):
         dict_horarios = {}
         dict_horarios['horario'] = hora[:2] + ':' + hora[2:]
         
-        fecha_inicio = datetime.datetime.now().strftime ("%Y%m%d")
+        fecha_inicio = fecha
         fecha_inicio = fecha_inicio + hora
         
         for cancha in canchas_complejo:
