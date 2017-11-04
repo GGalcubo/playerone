@@ -247,7 +247,7 @@ def alta_reserva(request):
                 reserva.actualizado_por = request.user.usuario
                 reserva.fecha_cracion = ''
                 reserva.fecha_atualizacion = ''
-                #reserva.save()
+                reserva.save()
                 cont_while = cont_while + 1
             return redirect(reverse('dashboard'))
         except Exception as e:
