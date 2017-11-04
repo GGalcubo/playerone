@@ -138,8 +138,12 @@ def dashboard(request):
     canchas_complejo = complejo_sel.cancha_set.all()
 
     import datetime
-    fecha = datetime.date.today().strftime("%d/%m/%Y")
+    if request.method == 'POST':
+        fecha = request.POST.get('fecha')
+    else:
+        fecha = datetime.date.today().strftime("%d/%m/%Y")
 
+    print fecha
     lista_horarios_text = ['10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30', '00:00', '00:30']
     lista_horarios = ['1000', '1030', '1100', '1130', '1200', '1230', '1300', '1330', '1400', '1430', '1500', '1530', '1600', '1630', '1700', '1730', '1800', '1830', '1900', '1930', '2000', '2030', '2100', '2130', '2200', '2230', '2300', '2330', '0000', '0030']
     dict_horarios = {}

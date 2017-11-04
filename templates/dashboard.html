@@ -32,13 +32,7 @@
                   <div class="portlet light" id="datepaginator">
                       <div class="portlet-body">
                           <!-- <h3>Default Date Paginator</h3> -->
-                          <div id="datepaginator_sample_1"> </div>
-                          <!-- <h3>On Date Selected Event Hanlder(try to select a date)</h3>
-                          <div id="datepaginator_sample_4"> </div>
-                          <h3>Large Date Paginator</h3>
-                          <div id="datepaginator_sample_2"> </div>
-                          <h3>Small Date Paginator</h3>
-                          <div id="datepaginator_sample_3"> </div> -->
+                          <div id="elegir_fecha_paginator"> </div>
                       </div>
                   </div>
                   <!-- END PORTLET DATE PAGINATOR -->
@@ -85,8 +79,6 @@
                           {% csrf_token %}
                           <input type="hidden" name="user_id" value="{{ user.id }}">
                           <input type="hidden" name="fecha" id="fecha_alta" value="{{ fecha }}">
-                          
-                        <form class="form-horizontal">
                           <fieldset>
                             <div class="form-group">
                               <label class="col-sm-2 control-label" for="">Fecha</label>
@@ -149,6 +141,10 @@
                         <form class="form-horizontal" id="form_eliminar_reserva" action="/eliminar_reserva/" method="post">{% csrf_token %}
                           <input type="hidden" name="id_reserva" id="id_reserva" value="">
                         </form>
+                        <form class="form-horizontal" id="form_elegir_fecha" action="/dashboard/" method="post">{% csrf_token %}
+                          <input type="hidden" name="fecha" id="fecha_elegida" value="">
+
+                        </form>
                       </div>
                       
                     </div>
@@ -164,6 +160,17 @@
     <!-- END CONTAINER -->
     {% include "pie.html" %}
     <script>
+
+      var options = {
+        selectedDate: '{{ fecha }}',
+        selectedDateFormat:  'DD/MM/YYYY',
+        onSelectedDateChanged: function(event, date) {
+            $('#fecha_elegida').val(date._i);
+            $("#form_elegir_fecha").submit();
+        }
+      };
+      $('#elegir_fecha_paginator').datepaginator(options);
+
       function abrirHorario(horario, id_res, canchaid){
 
         if(id_res == '0'){
