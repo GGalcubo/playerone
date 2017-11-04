@@ -61,7 +61,7 @@
                                 <tr>
                                   <td class="centrado">{{ linea|get_item:'horario' }}</td>
                                 {% for cancha in canchas_complejo %}
-                                  <td class="centrado"><span class="label label-sm label-{{ linea|get_item:cancha.nombre }}"><a onclick="abrirHorario('{{ linea|get_item:'horario' }}', '{{ linea|get_item:cancha.id }}', '{{ cancha.id  }}');" >{{ linea|get_item:cancha.nombre|title }}</a></span></td>
+                                  <td class="centrado"><span class="label label-sm label-{{ linea|get_item:cancha.nombre }}"><a onclick="abrirHorario('{{ linea|get_item:'horario' }}', '{{ linea|get_item:'id_reserva' }}', '{{ cancha.id  }}');" >{{ linea|get_item:cancha.nombre|title }}</a></span></td>
                                 {% endfor %}
                                 </tr>
                               {% endfor %}
@@ -85,6 +85,7 @@
                           {% csrf_token %}
                           <input type="hidden" name="user_id" value="{{ user.id }}">
                           <input type="hidden" name="fecha" id="fecha_alta" value="{{ fecha }}">
+                          
                         <form class="form-horizontal">
                           <fieldset>
                             <div class="form-group">
@@ -142,8 +143,11 @@
                           </fieldset>
                           <div class="modal-footer">
                             <input type="submit" class="btn btn-success" value="Reservar">
-                            <button type="button" class="btn btn-danger">Eliminar Reserva</button>
+                            <button type="button" id="eliminarReservaButton" onclick="eliminarReserva();" class="btn btn-danger">Eliminar Reserva</button>
                           </div>
+                        </form>
+                        <form class="form-horizontal" id="form_eliminar_reserva" action="/eliminar_reserva/" method="post">{% csrf_token %}
+                          <input type="hidden" name="id_reserva" id="id_reserva" value="">
                         </form>
                       </div>
                       
@@ -160,22 +164,42 @@
     <!-- END CONTAINER -->
     {% include "pie.html" %}
     <script>
-    function abrirHorario(horario, id, canchaid){
-    $('#cancha_select').val(canchaid);
-    //$('#cancha_select').prop('disabled',true);
-    
-    var fecha = $('#fecha').val();
-    $('#fecha_modal').val(fecha);
-    //$('#fecha_modal').prop('disabled',true);
-    $('#horarios_desde_select option:contains('+horario+')').prop('selected',true);
-    //$('#horarios_desde_select').prop('disabled',true);
-    $('#horarios_hasta_select option:contains('+horario+')').prop('selected',true);
-    $('#modalHorario').modal('show');
-    }
-    /* Para que no se trabe el modal si la pantalla es mas chica y puedas scrollear */
-    $(document).on('hidden.bs.modal', '.modal', function () {
-      $('.modal:visible').length && $(document.body).addClass('modal-open');
-    });
+      function abrirHorario(horario, id_res, canchaid){
+
+        if(id_res == '0'){
+          $("#eliminarReservaButton").hide()
+        }else{
+          $("#eliminarReservaButton").show()
+        }
+
+        $('#cancha_select').val(canchaid);
+        //$('#cancha_select').prop('disabled',true);
+        
+        var fecha = $('#fecha').val();
+        $('#fecha_modal').val(fecha);
+        //$('#fecha_modal').prop('disabled',true);
+        $('#horarios_select option:contains('+horario+')').prop('selected',true);
+        //$('#horarios_select').prop('disabled',true);
+        $('#horarios_hasta_select option:contains('+horario+')').prop('selected',true);
+
+        $('#horarios_hasta_select option:contains('+horario+')').prop('selected',true);
+
+        $('#id_reserva').val(id_res);
+
+        $('#modalHorario').modal('show');
+      }
+
+      /* Para que no se trabe el modal si la pantalla es mas chica y puedas scrollear */
+      $(document).on('hidden.bs.modal', '.modal', function () {
+        $('.modal:visible').length && $(document.body).addClass('modal-open');
+      });
+
+      function eliminarReserva(){
+        var r = confirm("Confirmar eliminar la reserva?");
+        if (r == true) {
+            $("#form_eliminar_reserva").submit();
+        }        
+      }
     </script>
   </body>
 </html>

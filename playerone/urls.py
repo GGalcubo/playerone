@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^mi_perfil_ayuda/', views.mi_perfil_ayuda, name='mi_perfil_ayuda'),    
     url(r'^form_alta_cancha/', views.form_alta_cancha, name='form_alta_cancha'),
     url(r'^alta_reserva/', views.alta_reserva, name='alta_reserva'),
+    url(r'^eliminar_reserva/', views.eliminar_reserva, name='eliminar_reserva'),
     url(r'^listado_canchas/', views.listado_canchas, name='listado_canchas'),
     url(r'^form_alta_complejo/', views.form_alta_complejo, name='form_alta_complejo'),
     url(r'^datos_complejo/', views.datos_complejo, name='datos_complejo'),

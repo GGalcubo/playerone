@@ -157,8 +157,11 @@ def dashboard(request):
             reservas = Reserva.objects.filter(cancha=cancha, fecha_inicio=fecha_inicio)
             if reservas:
                 dict_horarios[cancha.nombre] = 'reservada'
+                dict_horarios['id_reserva'] = reservas[0].id
             else:
                 dict_horarios[cancha.nombre] = 'libre'
+                dict_horarios['id_reserva'] = '0'
+
         tabla.append(dict_horarios)
     ancho = 95 / len(canchas_complejo)    
     
@@ -169,10 +172,8 @@ def dashboard(request):
 def form_alta_cancha(request):
     mensaje = 'INDEX'
     complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
-    complejo_sel = complejos[0]
 
-
-    context = {'mensaje': mensaje, 'complejos': complejos, 'complejo_sel':complejo_sel, }
+    context = {'mensaje': mensaje, 'complejos': complejos, }
     return render(request, 'form-alta-cancha.html', context)
 
 @login_required
@@ -230,27 +231,7 @@ def alta_reserva(request):
                     reserva.id_res = id_res
                     reserva.save()
                 cant_reserva = cant_reserva + 1
-            print "cant_reserva: " + str(cant_reserva)
 
-            cont_while = 0
-            while cont_while != cant_reserva:
-                reserva = Reserva()
-                reserva.nombre = nombre
-                reserva.telefono = telefono
-                reserva.usuario = request.user.usuario
-                reserva.cancha = Cancha.objects.get(id = cancha_select)
-                reserva.tipo_reserva = None
-                reserva.fecha_inicio = fecha.split("/")[2] + fecha.split("/")[1] + fecha.split("/")[0] + horarios_desde_select.replace(':','')
-                reserva.fecha_fin = fecha.split("/")[2] + fecha.split("/")[1] + fecha.split("/")[0] + horarios_hasta_select.replace(':','')
-                reserva.precio = ''
-                reserva.sena = sena
-                reserva.pago = ''
-                reserva.evento = False
-                reserva.actualizado_por = request.user.usuario
-                reserva.fecha_cracion = ''
-                reserva.fecha_atualizacion = ''
-                reserva.save()
-                cont_while = cont_while + 1
             return redirect(reverse('dashboard'))
         except Exception as e:
             mensaje = str(e)
@@ -261,6 +242,17 @@ def alta_reserva(request):
     print mensaje
     context = {'mensaje': mensaje, 'complejos': complejos}
     return render(request, 'dashboard.html', context)
+
+@login_required
+def eliminar_reserva(request):
+    id_reserva = request.POST.get('id_reserva')
+    reserva = Reserva.objects.get(id=id_reserva)
+    res_id = reserva.id_res
+    reservas = Reserva.objects.filter(id_res=res_id)
+    for r in reservas:
+        r.delete()
+
+    return redirect(reverse('dashboard'))
 
 @login_required
 def listado_canchas(request):
