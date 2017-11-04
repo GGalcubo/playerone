@@ -165,7 +165,7 @@
         selectedDate: '{{ fecha }}',
         selectedDateFormat:  'DD/MM/YYYY',
         onSelectedDateChanged: function(event, date) {
-            $('#fecha_elegida').val(date._i);
+            $('#fecha_elegida').val(moment(date).format("DD/MM/YYYY"));
             $("#form_elegir_fecha").submit();
         }
       };
