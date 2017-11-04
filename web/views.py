@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from .models import Usuario, Telefono, TelefonosUsuario, TipoTelefono, TipoUsuario, Cancha, Complejo, Reserva, UsuariosComplejos
+from .models import Usuario, Telefono, TelefonosUsuario, TipoTelefono, TipoUsuario, Cancha, Complejo, Reserva, UsuariosComplejos, Deporte, Superficie
 import json
 import datetime
 
@@ -173,8 +173,38 @@ def form_alta_cancha(request):
     mensaje = 'INDEX'
     complejos = Complejo.objects.filter(usuarioscomplejos__usuario__user__username=request.user.username)
     complejo_sel = complejos[0]
+    deportes = Deporte.objects.all()
+    superficies = Superficie.objects.all()
 
-    context = {'mensaje': mensaje, 'complejos': complejos, 'complejo_sel':complejo_sel, }
+    if request.method == 'GET':
+        pass
+    elif request.method == 'POST':
+        try:
+            complejo = request.POST.get('complejo-id')
+            nombre = request.POST.get('nombre-cancha')
+            superficie = request.POST.get('superficie-cancha')
+            precio = request.POST.get('precio-cancha')
+            cant_jugadores = request.POST.get('cant-jugadores')
+            #CORREGIRdeporte = request.POST.get('faltaCORREGIR')
+            techada = request.POST.get('checkbox-techada')
+            luz = request.POST.get('checkbox-luz')
+
+            print complejo
+            print nombre
+            print superficie
+            print precio
+            print cant_jugadores
+            print techada
+            print luz
+
+            return redirect(reverse('listado_canchas'))
+        except Exception as e:
+            mensaje = str(e)
+
+
+
+
+    context = {'mensaje': mensaje, 'complejos': complejos, 'complejo_sel':complejo_sel,'deportes':deportes, 'superficies':superficies, }
     return render(request, 'form-alta-cancha.html', context)
 
 @login_required

@@ -91,13 +91,15 @@
                                     </div>
                                     <div class="portlet-body">
                                         <!-- BEGIN FORM-->
-                                        <form action="#">
+                                        <form action="/form_alta_cancha/" method="post" id="form_alta_cancha">
+                                        {% csrf_token %}
+                                            <input type="hidden" value="{{ complejo_sel.id }}" name="complejo-id" id="complejo-id">
                                             <div class="form-body">
                                                 <div class="row">
                                                     <div class="col-sm-4">
                                                         <div class="form-group form-md-line-input form-md-floating-label has-info">
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <input type="text" class="form-control" name="nombre-cancha" id="nombre-cancha" required>
                                                                 <label for="form_control_1">Nombre</label>
                                                                 <span class="help-block">Nombre de la Cancha</span>
                                                                 <span class="input-group-addon">
@@ -108,13 +110,11 @@
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group form-md-line-input form-md-floating-label has-info">
-                                                            <select class="form-control" name="">
+                                                            <select class="form-control" name="superficie-cancha" id="superficie-cancha">
                                                                 <option value=""></option>
-                                                                <option value="1">Sintético</option>
-                                                                <option value="2">Baldosa</option>
-                                                                <option value="3">Flotante</option>
-                                                                <option value="4">Carpeta</option>
-                                                                <option value="5">Polvo de ladrillo</option>
+                                                                {% for s in superficies %}
+                                                                <option value="{{ s.id }}">{{ s.nombre }}</option>
+                                                                {% endfor %}
                                                             </select>
                                                             <label for="form_control_1">Superficie</label>
                                                             <span class="help-block">Tipo de superficie de la Cancha</span>
@@ -123,7 +123,7 @@
                                                     <div class="col-sm-4">
                                                         <div class="form-group form-md-line-input form-md-floating-label has-info">
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control" id="form_control_1">
+                                                                <input type="text" class="form-control" id="precio-cancha" name="precio-cancha">
                                                                 <label for="form_control_1">Precio</label>
                                                                 <span class="help-block">Precio de la Cancha</span>
                                                                 <span class="input-group-addon">
@@ -137,7 +137,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-4">
                                                         <div class="form-group form-md-line-input form-md-floating-label has-info">
-                                                            <select class="form-control" name="">
+                                                            <select class="form-control" name="cant-jugadores" id="cant-jugadores">
                                                                 <option value=""></option>
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
@@ -160,41 +160,15 @@
                                                             <label class="col-sm-12 control-label centrado borde">Deporte</label>
                                                             <div class="col-sm-12">
                                                                 <div class="md-checkbox-list">
+                                                                    {% for d in deportes %}
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox1_1" class="md-check">
-                                                                        <label for="checkbox1_1">
+                                                                        <input type="checkbox" id="deporte-{{ d.id }}" name="deporte-{{ d.id }}" class="md-check">
+                                                                        <label for="deporte-{{ d.id }}">
                                                                             <span></span>
                                                                             <span class="check"></span>
-                                                                            <span class="box"></span>Futbol</label>
+                                                                            <span class="box"></span>{{ d.nombre }}</label>
                                                                     </div>
-                                                                    <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox1_2" class="md-check">
-                                                                        <label for="checkbox1_2">
-                                                                            <span></span>
-                                                                            <span class="check"></span>
-                                                                            <span class="box"></span>Hockey</label>
-                                                                    </div>
-                                                                    <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox1_3" class="md-check">
-                                                                        <label for="checkbox1_3">
-                                                                            <span></span>
-                                                                            <span class="check"></span>
-                                                                            <span class="box"></span>Basket</label>
-                                                                    </div>
-                                                                    <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox1_4" class="md-check">
-                                                                        <label for="checkbox1_4">
-                                                                            <span></span>
-                                                                            <span class="check"></span>
-                                                                            <span class="box"></span>Tenis</label>
-                                                                    </div>
-                                                                    <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox1_5" class="md-check">
-                                                                        <label for="checkbox1_5">
-                                                                            <span></span>
-                                                                            <span class="check"></span>
-                                                                            <span class="box"></span>Handball</label>
-                                                                    </div>
+                                                                    {% endfor %}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -206,15 +180,15 @@
                                                             <div class="col-sm-12">
                                                                 <div class="md-checkbox-list">
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox2_1" class="md-check">
-                                                                        <label for="checkbox2_1">
+                                                                        <input type="checkbox" id="checkbox-techada" name="checkbox-techada" class="md-check">
+                                                                        <label for="checkbox-techada">
                                                                             <span></span>
                                                                             <span class="check"></span>
                                                                             <span class="box"></span>Techada</label>
                                                                     </div>
                                                                     <div class="md-checkbox">
-                                                                        <input type="checkbox" id="checkbox2_2" class="md-check">
-                                                                        <label for="checkbox2_2">
+                                                                        <input type="checkbox" id="checkbox-luz" name="checkbox-luz" class="md-check">
+                                                                        <label for="checkbox-luz">
                                                                             <span></span>
                                                                             <span class="check"></span>
                                                                             <span class="box"></span>Luz</label>
@@ -228,7 +202,7 @@
                                             <div class="form-actions centrado">
                                                 <div class="row">
                                                     <div class="col-sm-12">
-                                                        <a href="javascript:;" class="btn green">Guardar</a>
+                                                        <a onclick="guardarCancha();" href="#!" class="btn green">Guardar</a>
                                                         <a href="javascript:;" class="btn red">Cancelar</a>
                                                     </div>
                                                 </div>
@@ -250,7 +224,11 @@
         </div>
         <!-- END CONTAINER -->
         {% include "pie.html" %}
-
+        <script>
+            function guardarCancha() {
+                $('#form_alta_cancha').submit();
+            }
+        </script>
     </body>
 
 </html>
