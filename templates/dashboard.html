@@ -55,7 +55,18 @@
                                 <tr>
                                   <td class="centrado">{{ linea|get_item:'horario' }}</td>
                                 {% for cancha in canchas_complejo %}
-                                  <td class="centrado"><span class="label label-sm label-{{ linea|get_item:cancha.nombre }}"><a onclick="abrirHorario('{{ linea|get_item:'horario' }}', '{{ linea|get_item:'id_reserva' }}', '{{ cancha.id  }}');" >{{ linea|get_item:cancha.nombre|title }}</a></span></td>
+                                  <td class="centrado">
+                                  {% if linea|get_item:cancha.nombre == '0' %}
+                                      <span class="label label-sm label-libre">
+                                        <a onclick="abrirHorario('{{ linea|get_item:'horario' }}', '0', '{{ cancha.id  }}');" >Libre</a>
+                                      </span>
+                                  {% else %}
+                                      <span class="label label-sm label-reservada">
+                                        <a onclick="abrirHorario('{{ linea|get_item:'horario' }}', '{{ linea|get_item:cancha.nombre}}', '{{ cancha.id  }}');" >Reservada</a>
+                                      </span>
+                                  {% endif %}
+
+                                  </td>
                                 {% endfor %}
                                 </tr>
                               {% endfor %}
@@ -134,7 +145,7 @@
                             </div>
                           </fieldset>
                           <div class="modal-footer">
-                            <input type="submit" class="btn btn-success" value="Reservar">
+                            <input type="submit" class="btn btn-success" value="Reservar" id="ReservaButton">
                             <button type="button" id="eliminarReservaButton" onclick="eliminarReserva();" class="btn btn-danger">Eliminar Reserva</button>
                           </div>
                         </form>
@@ -175,8 +186,10 @@
 
         if(id_res == '0'){
           $("#eliminarReservaButton").hide()
+          $("#ReservaButton").show()
         }else{
           $("#eliminarReservaButton").show()
+          $("#ReservaButton").hide()
         }
 
         $('#cancha_select').val(canchaid);

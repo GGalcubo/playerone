@@ -164,14 +164,18 @@ def dashboard(request):
         for cancha in canchas_complejo:
             reservas = Reserva.objects.filter(cancha=cancha, fecha_inicio=fecha_inicio)
             if reservas:
-                dict_horarios[cancha.nombre] = 'reservada'
-                dict_horarios['id_reserva'] = reservas[0].id
+                dict_horarios[cancha.nombre] = reservas[0].id
+                #dict_horarios[cancha.nombre] = 'reservada'
+                #dict_horarios[cancha.nombre + '_id_reserva'] = reservas[0].id
             else:
-                dict_horarios[cancha.nombre] = 'libre'
-                dict_horarios['id_reserva'] = '0'
+                dict_horarios[cancha.nombre] = '0'
+                #dict_horarios[cancha.nombre] = 'libre'
+                #dict_horarios[cancha.nombre + '_id_reserva'] = '0'
 
         tabla.append(dict_horarios)
-    ancho = 95 / len(canchas_complejo)    
+    ancho = 95 / len(canchas_complejo)
+
+    print tabla
     
     context = {'fecha': fecha,'mensaje': mensaje, 'complejos': complejos, 'canchas_complejo':canchas_complejo, 'complejo_sel':complejo_sel, 'tabla':tabla, 'lista_horarios_text': lista_horarios_text, 'ancho':ancho}
     return render(request, 'dashboard.html', context)
