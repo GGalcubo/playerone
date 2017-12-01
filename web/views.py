@@ -175,8 +175,6 @@ def dashboard(request):
         tabla.append(dict_horarios)
     ancho = 95 / len(canchas_complejo)
 
-    print tabla
-    
     context = {'fecha': fecha,'mensaje': mensaje, 'complejos': complejos, 'canchas_complejo':canchas_complejo, 'complejo_sel':complejo_sel, 'tabla':tabla, 'lista_horarios_text': lista_horarios_text, 'ancho':ancho}
     return render(request, 'dashboard.html', context)
     

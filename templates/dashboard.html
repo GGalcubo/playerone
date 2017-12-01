@@ -127,20 +127,20 @@
                             <div class="form-group">
                               <label class="col-sm-2 control-label" for="">Nombre</label>
                               <div class="col-sm-4">
-                                <input id="" name="nombre" type="text" placeholder="Jorge" class="form-control" required="">
+                                <input id="" name="nombre" type="text" placeholder="Luis" class="form-control" required="" value="Luis">
                               </div>
                               <label class="col-sm-2 control-label" for="">Teléfono</label>
                               <div class="col-sm-4">
                                 <div class="input-group">
                                   <!-- span class="input-group-addon">+54 9</span -->
-                                  <input id="" name="telefono" class="form-control" placeholder="1136561212" type="text" required="">
+                                  <input id="" name="telefono" class="form-control" placeholder="1136561212" type="text" required="" value="1136561212">
                                 </div>
                               </div>
                             </div>
                             <div class="form-group">
                               <label class="col-sm-2 control-label" for="">Seña</label>
                               <div class="col-sm-4">
-                                <input id="" name="sena" type="text" placeholder="$200" class="form-control" required="">
+                                <input id="" name="sena" type="text" placeholder="$200" class="form-control" required="" value="200">
                               </div>
                             </div>
                           </fieldset>
@@ -173,6 +173,8 @@
     <script>
 
       var options = {
+        startDate: moment(new Date(2000, 1, 1)),
+        endDate: moment(new Date(2100, 1, 1)),
         selectedDate: '{{ fecha }}',
         selectedDateFormat:  'DD/MM/YYYY',
         onSelectedDateChanged: function(event, date) {
@@ -193,16 +195,16 @@
         }
 
         $('#cancha_select').val(canchaid);
-        //$('#cancha_select').prop('disabled',true);
+        $('#cancha_select').prop('readonly',true);
         
         var fecha = $('#fecha').val();
         $('#fecha_modal').val(fecha);
-        //$('#fecha_modal').prop('disabled',true);
+        $('#fecha_modal').prop('readonly',true);
         $('#horarios_select option:contains('+horario+')').prop('selected',true);
-        //$('#horarios_select').prop('disabled',true);
-        $('#horarios_hasta_select option:contains('+horario+')').prop('selected',true);
+        $('#horarios_select').prop('readonly',true);
+        $('#horarios_desde_select option:contains('+horario+')').prop('selected',true);
 
-        $('#horarios_hasta_select option:contains('+horario+')').prop('selected',true);
+        $('#horarios_hasta_select option:contains('+addMinutes(horario, '30')+')').prop('selected',true);
 
         $('#id_reserva').val(id_res);
 
@@ -220,6 +222,14 @@
             $("#form_eliminar_reserva").submit();
         }        
       }
+
+      function addMinutes(time, minsToAdd) {
+          function D(J){ return (J<10? '0':'') + J;};
+          var piece = time.split(':');
+          var mins = piece[0]*60 + +piece[1] + +minsToAdd;
+
+          return D(mins%(24*60)/60 | 0) + ':' + D(mins%60);
+        }
     </script>
   </body>
 </html>
