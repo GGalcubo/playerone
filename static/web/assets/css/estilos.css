@@ -158,3 +158,10 @@ a.boton {
   }
 }
 
+.md-checkbox {
+    margin-top: 10px;
+}
+
+.md-checkbox input[type=checkbox]:checked~label>.check {
+    transform: scale(1.2) rotate(45deg);
+}
