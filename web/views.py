@@ -143,7 +143,11 @@ def dashboard(request):
     else:
         fecha = datetime.date.today().strftime("%d/%m/%Y")
 
-    print fecha
+    try:
+        fecha = request.session.pop('fecha')
+    except KeyError as e:
+        pass
+
     lista_horarios_text = ['10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30', '00:00', '00:30']
     lista_horarios = ['1000', '1030', '1100', '1130', '1200', '1230', '1300', '1330', '1400', '1430', '1500', '1530', '1600', '1630', '1700', '1730', '1800', '1830', '1900', '1930', '2000', '2030', '2100', '2130', '2200', '2230', '2300', '2330', '0000', '0030']
     dict_horarios = {}
@@ -154,20 +158,24 @@ def dashboard(request):
         dict_horarios = {}
         dict_horarios['horario'] = hora[:2] + ':' + hora[2:]
         
-        fecha_inicio = datetime.datetime.now().strftime ("%Y%m%d")
+        fecha_inicio = fecha.split("/")[2] + fecha.split("/")[1] + fecha.split("/")[0]
         fecha_inicio = fecha_inicio + hora
-
+        
         for cancha in canchas_complejo:
             reservas = Reserva.objects.filter(cancha=cancha, fecha_inicio=fecha_inicio)
             if reservas:
-                dict_horarios[cancha.nombre] = 'reservada'
-                dict_horarios['id_reserva'] = reservas[0].id
+                dict_horarios[cancha.nombre] = reservas[0].id
+                #dict_horarios[cancha.nombre] = 'reservada'
+                #dict_horarios[cancha.nombre + '_id_reserva'] = reservas[0].id
             else:
-                dict_horarios[cancha.nombre] = 'libre'
-                dict_horarios['id_reserva'] = '0'
+                dict_horarios[cancha.nombre] = '0'
+                #dict_horarios[cancha.nombre] = 'libre'
+                #dict_horarios[cancha.nombre + '_id_reserva'] = '0'
 
         tabla.append(dict_horarios)
-    ancho = 95 / len(canchas_complejo)    
+    ancho = 95 / len(canchas_complejo)
+
+    print tabla
     
     context = {'fecha': fecha,'mensaje': mensaje, 'complejos': complejos, 'canchas_complejo':canchas_complejo, 'complejo_sel':complejo_sel, 'tabla':tabla, 'lista_horarios_text': lista_horarios_text, 'ancho':ancho}
     return render(request, 'dashboard.html', context)
@@ -266,6 +274,8 @@ def alta_reserva(request):
                     reserva.id_res = id_res
                     reserva.save()
                 cant_reserva = cant_reserva + 1
+
+            request.session['fecha'] = fecha
 
             return redirect(reverse('dashboard'))
         except Exception as e:
